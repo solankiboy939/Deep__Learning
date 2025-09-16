@@ -3,88 +3,1444 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unit 2: Core Concepts</title>
+  <title>Unit 2: Keras Deep Dive | Learning Galaxy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: #fff;
+    :root {
+      --primary: #6a1b9a;
+      --primary-light: #9c4dcc;
+      --secondary: #ff6f00;
+      --accent: #00897b;
+      --bg-dark: #0d0b1a;
+      --bg-darker: #070510;
+      --text: #e0e0e0;
+      --text-muted: #aaaaaa;
+      --card-bg: rgba(35, 25, 65, 0.85);
+      --border: rgba(255, 255, 255, 0.1);
+      --success: #66bb6a;
+      --warning: #ffca28;
+      --danger: #ef5350;
+      --info: #29b6f6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      min-height: 100vh;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
-    .header {
-      width: 100%;
+
+    body {
+      background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark), #1a0f3d);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      background-attachment: fixed;
+    }
+
+    .container {
       max-width: 1200px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 3rem;
+      margin: 0 auto;
+      padding: 2rem;
     }
-    .back-btn {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      backdrop-filter: blur(5px);
-      transition: all 0.3s ease;
+
+    header {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      position: relative;
+      background: radial-gradient(circle at top, rgba(106, 27, 154, 0.1), transparent 60%);
     }
-    .back-btn:hover {
-      background: rgba(255,255,255,0.2);
-      transform: translateX(-5px);
-    }
+
     h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(to right, #a18cd1, #fbc2eb);
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #ff9a9e, #a18cd1, #6a1b9a, #00897b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
-    .content {
-      max-width: 800px;
-      text-align: center;
-      line-height: 1.8;
-      font-size: 1.1rem;
-    }
-    .content h2 {
-      margin: 2rem 0 1rem;
-      color: #81c784;
-    }
-    .content p {
-      margin-bottom: 1.5rem;
+
+    .subtitle {
+      font-size: 1.3rem;
       opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
     }
-    .coming-soon {
-      margin-top: 3rem;
-      font-size: 1.5rem;
-      color: #81c784;
+
+    .progress-bar-container {
+      background: rgba(255,255,255,0.05);
+      border-radius: 50px;
+      padding: 8px;
+      display: inline-block;
+      margin: 1rem auto 2rem;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .progress-bar {
+      height: 12px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff9a9e, #a18cd1, #66bb6a, #00897b);
+      width: 85%;
+      border-radius: 50px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      border: none;
       font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, var(--primary), #7b4dff);
+      color: white;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary-light);
+      color: var(--primary-light);
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover i {
+      transform: rotate(5deg);
+    }
+
+    /* Accordion Styles */
+    .accordion {
+      margin: 3rem 0;
+    }
+
+    .accordion-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      backdrop-filter: blur(10px);
+    }
+
+    .accordion-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .accordion-header {
+      padding: 1.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.3rem;
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      transition: background 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background: rgba(255,255,255,0.07);
+    }
+
+    .accordion-header::after {
+      content: '+';
+      font-size: 1.8rem;
+      transition: transform 0.4s ease, color 0.3s ease;
+      color: var(--primary-light);
+    }
+
+    .accordion-item.active .accordion-header::after {
+      content: '−';
+      transform: rotate(90deg);
+      color: var(--success);
+    }
+
+    .accordion-content {
+      padding: 0 2rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.8s cubic-bezier(0.87, 0, 0.13, 1), padding 0.5s ease;
+      background: rgba(0,0,0,0.1);
+    }
+
+    .accordion-item.active .accordion-content {
+      padding: 0 2rem 2rem;
+      max-height: 3000px;
+    }
+
+    .accordion-content p {
+      margin: 1.2rem 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .accordion-content strong {
+      color: var(--primary-light);
+    }
+
+    .accordion-content ul, .accordion-content ol {
+      padding-left: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    .accordion-content li {
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .accordion-content li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* Pro Tip Box */
+    .pro-tip {
+      background: rgba(102, 187, 106, 0.15);
+      border-left: 4px solid var(--success);
+      padding: 1.2rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1.5rem 0;
+      font-style: italic;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .pro-tip i {
+      color: var(--success);
+      font-size: 1.5rem;
+      min-width: 24px;
+    }
+
+    /* Pitfall Warning */
+    .pitfall {
+      background: rgba(239, 83, 80, 0.15);
+      border-left: 4px solid var(--danger);
+      padding: 1.2rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1.5rem 0;
+      font-style: italic;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .pitfall i {
+      color: var(--danger);
+      font-size: 1.5rem;
+      min-width: 24px;
+    }
+
+    /* Why This Matters */
+    .why-matters {
+      background: rgba(255, 202, 40, 0.15);
+      border-left: 4px solid var(--warning);
+      padding: 1.2rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1.5rem 0;
+      font-weight: 600;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .why-matters i {
+      color: var(--warning);
+      font-size: 1.5rem;
+      min-width: 24px;
+    }
+
+    /* Info Box */
+    .info-box {
+      background: rgba(41, 182, 246, 0.15);
+      border-left: 4px solid var(--info);
+      padding: 1.2rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .info-box i {
+      color: var(--info);
+      font-size: 1.5rem;
+      min-width: 24px;
+    }
+
+    /* Code Block */
+    .code-block {
+      background: #1e1e1e;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      border-left: 6px solid var(--accent);
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .code-comment { color: #6a9955; font-style: italic; }
+    .code-keyword { color: #569cd6; font-weight: bold; }
+    .code-string { color: #ce9178; }
+    .code-function { color: #dcdcaa; }
+    .code-number { color: #b5cea8; }
+
+    .code-label {
+      position: absolute;
+      top: 0.75rem;
+      right: 1rem;
+      background: var(--accent);
+      color: #000;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    /* Editable Code Sandbox */
+    .code-sandbox {
+      background: #2d2d2d;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      position: relative;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    }
+
+    .code-editor {
+      width: 100%;
+      height: 200px;
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem;
+      resize: none;
+      margin-bottom: 1rem;
+    }
+
+    .sandbox-controls {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .sandbox-btn {
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .run-btn {
+      background: var(--success);
+      color: white;
+    }
+
+    .reset-btn {
+      background: var(--warning);
+      color: #000;
+    }
+
+    .output-console {
+      background: #000;
+      color: #0f0;
+      font-family: monospace;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      min-height: 60px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    /* Diagrams */
+    .diagram-container {
+      display: flex;
+      justify-content: center;
+      margin: 2.5rem 0;
+    }
+
+    .diagram {
+      background: rgba(0,0,0,0.2);
+      padding: 2.5rem;
+      border-radius: 20px;
+      max-width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .diagram-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-light);
+    }
+
+    /* Interactive Demo */
+    .demo-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    .demo-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary-light);
+    }
+
+    /* Layer Builder */
+    .layer-builder {
+      background: rgba(0,0,0,0.2);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .layer-palette {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .layer-card {
+      background: rgba(255,255,255,0.05);
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: 15px;
+      padding: 1.5rem;
+      width: 140px;
+      cursor: grab;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .layer-card:hover {
+      transform: scale(1.05);
+      border-color: var(--primary-light);
+      background: rgba(106, 27, 154, 0.2);
+    }
+
+    .layer-card:active {
+      cursor: grabbing;
+    }
+
+    .layer-name {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary-light);
+    }
+
+    .model-canvas {
+      min-height: 200px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+      border: 2px dashed var(--border);
+    }
+
+    .model-layer {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      margin: 0.5rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Plotly Chart Container */
+    .chart-container {
+      width: 100%;
+      height: 300px;
+      margin: 2rem 0;
+      background: rgba(0,0,0,0.2);
+      border-radius: 15px;
+      padding: 1rem;
+    }
+
+    /* Tooltip */
+    [data-tooltip] {
+      position: relative;
+      cursor: help;
+      border-bottom: 1px dashed var(--primary-light);
+      font-weight: 600;
+      color: var(--primary-light);
+      transition: all 0.3s ease;
+    }
+
+    [data-tooltip]:hover {
+      color: #fff;
+    }
+
+    [data-tooltip]::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: #2a2a2a;
+      color: white;
+      padding: 0.8rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      white-space: pre-line;
+      text-align: center;
+      max-width: 300px;
+      line-height: 1.5;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      z-index: 100;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    }
+
+    [data-tooltip]:hover::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Quiz */
+    .quiz-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+
+    .quiz-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--warning);
+      text-align: center;
+    }
+
+    .quiz-question {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .quiz-option {
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .quiz-option:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateX(5px);
+    }
+
+    .quiz-option.correct {
+      background: rgba(102, 187, 106, 0.3);
+      border-left: 4px solid var(--success);
+    }
+
+    .quiz-option.incorrect {
+      background: rgba(239, 83, 80, 0.3);
+      border-left: 4px solid var(--danger);
+    }
+
+    .quiz-feedback {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .feedback-correct {
+      background: rgba(102, 187, 106, 0.2);
+      color: var(--success);
+    }
+
+    .feedback-incorrect {
+      background: rgba(239, 83, 80, 0.2);
+      color: var(--danger);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      .subtitle { font-size: 1.1rem; padding: 0 1rem; }
+      .controls { flex-direction: column; align-items: center; }
+      .accordion-header { font-size: 1.15rem; padding: 1.5rem; }
+      .code-block, .code-sandbox { padding: 1.5rem 1rem; }
+      .layer-card { width: 120px; padding: 1rem; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      background: rgba(0,0,0,0.1);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--primary-light);
+      text-decoration: none;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      background: rgba(106, 27, 154, 0.1);
+    }
+
+    .back-btn:hover {
+      gap: 1rem;
+      background: rgba(106, 27, 154, 0.2);
+      transform: translateX(-5px);
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: linear-gradient(45deg, var(--primary), #7b4dff);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin: 1.5rem 0 1rem;
+      box-shadow: 0 3px 10px rgba(106, 27, 154, 0.3);
+    }
+
+    .next-unit {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(102, 187, 106, 0.1);
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid rgba(102, 187, 106, 0.3);
+    }
+
+    .next-unit h3 {
+      color: var(--success);
+      margin-bottom: 0.5rem;
+    }
+
+    .glow {
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 5px rgba(102, 187, 106, 0.5); }
+      to { box-shadow: 0 0 20px rgba(102, 187, 106, 0.8); }
+    }
+
+    .pulse {
+      animation: pulse-ring 2s infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <a href="index.html" class="back-btn">← Back to Dashboard</a>
-    <h1>⚙️ Unit 2: Core Concepts</h1>
+  <div class="container">
+    <a href="unit1.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Unit 1
+    </a>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <header>
+      <h1>Unit 2: Keras Deep Dive</h1>
+      <p class="subtitle">Master Keras — the high-level API that lets you build powerful deep learning models in minutes, not hours. Interactive demos, live code, and visual training included!</p>
+      
+      <div class="controls">
+        <button class="btn btn-primary" onclick="exportNotes()">
+          <i class="fas fa-download"></i> Export Study Notes
+        </button>
+        <button class="btn btn-outline" onclick="resetPage()">
+          <i class="fas fa-redo"></i> Reset & Restart
+        </button>
+      </div>
+    </header>
+
+    <!-- Accordion 1: Intro to Keras -->
+    <div class="accordion">
+      <div class="accordion-item active">
+        <div class="accordion-header">🚀 1. What is Keras? Your Deep Learning Power Tool</div>
+        <div class="accordion-content">
+          <p>Imagine you want to build a car. You could forge every bolt, cast every piston, and hand-stitch every seat — or you could use a <strong>pre-fabricated kit</strong> with high-quality, pre-tested parts that snap together easily.</p>
+          <p><strong>Keras</strong> is that kit for deep learning. It’s a <span data-tooltip="Application Programming Interface — a set of pre-built functions that let you interact with a complex system (TensorFlow) without knowing all the low-level details.">high-level API</span> that runs on top of TensorFlow, letting you build state-of-the-art neural networks with just a few lines of code.</p>
+          
+          <div class="section-tag">Why Keras Wins</div>
+          <ul>
+            <li><strong>Fast Experimentation:</strong> Go from idea → code → result in minutes.</li>
+            <li><strong>User-Friendly:</strong> Code reads like plain English. Easy to learn, easy to share.</li>
+            <li><strong>Modular:</strong> Swap layers, optimizers, or loss functions like Lego bricks.</li>
+            <li><strong>Production Ready:</strong> Models you build for research can be deployed directly.</li>
+          </ul>
+
+          <div class="why-matters">
+            <i class="fas fa-lightbulb"></i>
+            <div>
+              <strong>Why This Matters:</strong> Keras lets you focus on the architecture and problem, not the plumbing. It’s the #1 choice for beginners and pros alike — used by Google, Netflix, and NASA.
+            </div>
+          </div>
+
+          <div class="pro-tip">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Pro Tip:</strong> Always use <code>tf.keras</code> (not standalone Keras). It’s officially part of TensorFlow and gets updated faster.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 2: Core Components -->
+      <div class="accordion-item">
+        <div class="accordion-header">🧩 2. Core Components: Layers, Models, Optimizers & More</div>
+        <div class="accordion-content">
+          <p>Every Keras model is built from five key components. Think of them as the “atoms” of deep learning:</p>
+          
+          <div class="info-box">
+            <i class="fas fa-layer-group"></i>
+            <div>
+              <strong>1. Layers</strong> — The building blocks. Each layer transforms input data.<br>
+              <code>Dense</code>, <code>Conv2D</code>, <code>LSTM</code>, <code>Dropout</code>, <code>Flatten</code>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <i class="fas fa-cube"></i>
+            <div>
+              <strong>2. Models</strong> — The container. Holds layers and defines data flow.<br>
+              <code>Sequential</code> (linear stack) or <code>Functional</code> (complex graphs)
+            </div>
+          </div>
+
+          <div class="info-box">
+            <i class="fas fa-sliders-h"></i>
+            <div>
+              <strong>3. Optimizers</strong> — The “teacher” that updates weights.<br>
+              <code>Adam</code>, <code>SGD</code>, <code>RMSprop</code>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <i class="fas fa-chart-line"></i>
+            <div>
+              <strong>4. Loss Functions</strong> — The “report card” measuring error.<br>
+              <code>sparse_categorical_crossentropy</code>, <code>mean_squared_error</code>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <i class="fas fa-medal"></i>
+            <div>
+              <strong>5. Metrics</strong> — The “scoreboard” for performance.<br>
+              <code>accuracy</code>, <code>precision</code>, <code>AUC</code>
+            </div>
+          </div>
+
+          <div class="pro-tip">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Pro Tip:</strong> Memorize this workflow: <strong>Import → Define → Compile → Fit</strong>. It’s the Keras mantra!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 3: Layers Deep Dive -->
+      <div class="accordion-item">
+        <div class="accordion-header">🧠 3. Layer Types: When to Use What</div>
+        <div class="accordion-content">
+          <p>Not all layers are created equal. Choosing the right layer is like choosing the right tool for a job:</p>
+          
+          <div class="layer-builder">
+            <div class="diagram-title">Drag & Drop Layer Builder (Conceptual)</div>
+            <div class="layer-palette">
+              <div class="layer-card" draggable="true" ondragstart="drag(event)" id="dense">
+                <div class="layer-name">Dense</div>
+                <div>Fully Connected</div>
+              </div>
+              <div class="layer-card" draggable="true" ondragstart="drag(event)" id="conv2d">
+                <div class="layer-name">Conv2D</div>
+                <div>For Images</div>
+              </div>
+              <div class="layer-card" draggable="true" ondragstart="drag(event)" id="lstm">
+                <div class="layer-name">LSTM</div>
+                <div>For Text/Time</div>
+              </div>
+              <div class="layer-card" draggable="true" ondragstart="drag(event)" id="dropout">
+                <div class="layer-name">Dropout</div>
+                <div>Prevent Overfitting</div>
+              </div>
+            </div>
+            
+            <div class="model-canvas" id="canvas" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <p>Drop layers here to build your model!</p>
+            </div>
+          </div>
+
+          <div class="section-tag">Layer Cheat Sheet</div>
+          <ul>
+            <li><strong>Dense:</strong> Default for tabular data or final layers. Every neuron connects to every neuron in previous layer.</li>
+            <li><strong>Conv2D:</strong> For images. Learns spatial hierarchies (edges → textures → objects).</li>
+            <li><strong>LSTM/GRU:</strong> For sequences (text, time series). Has “memory” of previous inputs.</li>
+            <li><strong>Dropout:</strong> Adds randomness during training to prevent overfitting. Use after Dense/Conv layers.</li>
+            <li><strong>Flatten:</strong> Converts 2D/3D data (like images) into 1D for Dense layers.</li>
+          </ul>
+
+          <div class="pitfall">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <strong>Common Pitfall:</strong> Using Dense layers for images → very slow and inefficient. Use Conv2D instead!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 4: Sequential vs Functional -->
+      <div class="accordion-item">
+        <div class="accordion-header">⚖️ 4. Sequential vs Functional API: Choose Your Weapon</div>
+        <div class="accordion-content">
+          <p>Keras gives you two ways to build models. Which one should you use?</p>
+          
+          <div class="info-box">
+            <i class="fas fa-list"></i>
+            <div>
+              <strong>Sequential API</strong> — For simple, linear models. Layers stacked like pancakes.<br>
+              ✅ Perfect for beginners<br>
+              ✅ 90% of use cases<br>
+              ❌ Can’t handle multiple inputs/outputs or complex branching
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-label">Sequential Model</div>
+            <span class="code-keyword">from</span> tensorflow.keras.models <span class="code-keyword">import</span> Sequential<br>
+            <span class="code-keyword">from</span> tensorflow.keras.layers <span class="code-keyword">import</span> Dense<br><br>
+            model = Sequential([<br>
+            &nbsp;&nbsp;Dense(<span class="code-number">64</span>, activation=<span class="code-string">'relu'</span>, input_shape=(<span class="code-number">784</span>,)),<br>
+            &nbsp;&nbsp;Dense(<span class="code-number">10</span>, activation=<span class="code-string">'softmax'</span>)<br>
+            ])
+          </div>
+
+          <div class="info-box">
+            <i class="fas fa-project-diagram"></i>
+            <div>
+              <strong>Functional API</strong> — For complex architectures. Define how layers connect.<br>
+              ✅ Multiple inputs/outputs<br>
+              ✅ Shared layers<br>
+              ✅ Skip connections (ResNet)<br>
+              ❌ More complex syntax
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-label">Functional Model</div>
+            <span class="code-keyword">from</span> tensorflow.keras.layers <span class="code-keyword">import</span> Input<br>
+            <span class="code-keyword">from</span> tensorflow.keras.models <span class="code-keyword">import</span> Model<br><br>
+            inputs = Input(shape=(<span class="code-number">784</span>,))<br>
+            x = Dense(<span class="code-number">64</span>, activation=<span class="code-string">'relu'</span>)(inputs)<br>
+            outputs = Dense(<span class="code-number">10</span>, activation=<span class="code-string">'softmax'</span>)(x)<br>
+            model = Model(inputs=inputs, outputs=outputs)
+          </div>
+
+          <div class="pro-tip">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Pro Tip:</strong> Start with Sequential. Only switch to Functional when you need multiple inputs, outputs, or skip connections.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 5: Compilation Deep Dive -->
+      <div class="accordion-item">
+        <div class="accordion-header">⚙️ 5. Compilation: Configuring Your Learning Engine</div>
+        <div class="accordion-content">
+          <p>The <code>compile()</code> step is where you configure the “learning engine” — telling Keras how to train your model.</p>
+          
+          <div class="code-block">
+            <div class="code-label">The Holy Trinity of Compilation</div>
+            model.compile(<br>
+            &nbsp;&nbsp;optimizer=<span class="code-string">'adam'</span>,                          <span class="code-comment"># The algorithm that updates weights</span><br>
+            &nbsp;&nbsp;loss=<span class="code-string">'sparse_categorical_crossentropy'</span>,   <span class="code-comment"># The function to minimize</span><br>
+            &nbsp;&nbsp;metrics=[<span class="code-string">'accuracy'</span>]                     <span class="code-comment"># What to report during training</span><br>
+            )
+          </div>
+
+          <div class="section-tag">Choosing Your Loss Function</div>
+          <ul>
+            <li><strong>Classification (3+ classes):</strong> <code>sparse_categorical_crossentropy</code> (integer labels) or <code>categorical_crossentropy</code> (one-hot labels)</li>
+            <li><strong>Binary Classification (2 classes):</strong> <code>binary_crossentropy</code></li>
+            <li><strong>Regression (predicting numbers):</strong> <code>mean_squared_error</code> or <code>mean_absolute_error</code></li>
+          </ul>
+
+          <div class="section-tag">Optimizer Quick Guide</div>
+          <ul>
+            <li><strong>Adam:</strong> Default choice. Adaptive learning rate + momentum. Works great for most problems.</li>
+            <li><strong>SGD:</strong> Simple, but needs careful tuning of learning rate.</li>
+            <li><strong>RMSprop:</strong> Good for recurrent networks.</li>
+          </ul>
+
+          <div class="pitfall">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <strong>Common Pitfall:</strong> Using <code>categorical_crossentropy</code> with integer labels (or vice versa). Your model will train poorly or not at all!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 6: Training with Fit -->
+      <div class="accordion-item">
+        <div class="accordion-header">🏋️ 6. Training: The fit() Method Demystified</div>
+        <div class="accordion-content">
+          <p>The <code>fit()</code> method is where your model learns from data. It’s like sending your model to school!</p>
+          
+          <div class="code-block">
+            <div class="code-label">Training Your Model</div>
+            history = model.fit(<br>
+            &nbsp;&nbsp;X_train, y_train,           <span class="code-comment"># Training data</span><br>
+            &nbsp;&nbsp;epochs=<span class="code-number">10</span>,                <span class="code-comment"># Number of times to see entire dataset</span><br>
+            &nbsp;&nbsp;batch_size=<span class="code-number">32</span>,            <span class="code-comment"># Number of samples per weight update</span><br>
+            &nbsp;&nbsp;validation_data=(X_val, y_val) <span class="code-comment"># Optional: data to monitor progress</span><br>
+            )
+          </div>
+
+          <div class="section-tag">Key Parameters Explained</div>
+          <ul>
+            <li><strong>epochs:</strong> One epoch = one full pass through the training data. More epochs = more learning, but risk of overfitting.</li>
+            <li><strong>batch_size:</strong> Number of samples processed before updating weights. Common values: 32, 64, 128. Smaller = more noise, larger = more stable.</li>
+            <li><strong>validation_data:</strong> Data not used for training, but for monitoring performance. Crucial for detecting overfitting!</li>
+          </ul>
+
+          <div class="demo-container">
+            <div class="demo-title">Live Training Simulation</div>
+            <button class="btn btn-primary" onclick="simulateTraining()">
+              <i class="fas fa-play"></i> Start Training Simulation
+            </button>
+            <div class="chart-container" id="training-chart"></div>
+          </div>
+
+          <div class="pro-tip">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Pro Tip:</strong> Always use <code>validation_data</code>. If training loss keeps decreasing but validation loss starts increasing → you’re overfitting!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 7: Classification vs Regression -->
+      <div class="accordion-item">
+        <div class="accordion-header">🎯 7. Classification vs Regression: Setup Guide</div>
+        <div class="accordion-content">
+          <p>Is your problem about predicting categories (classification) or numbers (regression)? The setup is different!</p>
+          
+          <div class="info-box">
+            <i class="fas fa-tag"></i>
+            <div>
+              <strong>Classification Example: MNIST Digit Recognition</strong><br>
+              Predict which digit (0-9) an image shows.<br>
+              → 10 classes → Output layer: 10 neurons + <code>softmax</code><br>
+              → Loss: <code>sparse_categorical_crossentropy</code>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <i class="fas fa-ruler"></i>
+            <div>
+              <strong>Regression Example: House Price Prediction</strong><br>
+              Predict the price of a house in dollars.<br>
+              → Continuous value → Output layer: 1 neuron + no activation<br>
+              → Loss: <code>mean_squared_error</code>
+            </div>
+          </div>
+
+          <div class="code-sandbox">
+            <div class="code-label">Try It Yourself: Classification Setup</div>
+            <textarea class="code-editor" id="code-editor">from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+# Build model for 10-class classification
+model = Sequential([
+    Dense(128, activation='relu', input_shape=(784,)),
+    Dense(64, activation='relu'),
+    Dense(10, activation='softmax')  # 10 classes
+])
+
+# Compile with correct loss for classification
+model.compile(
+    optimizer='adam',
+    loss='sparse_categorical_crossentropy',  # For integer labels
+    metrics=['accuracy']
+)
+
+print("✅ Model configured for CLASSIFICATION!")
+print("Output layer: 10 neurons with softmax")
+print("Loss: sparse_categorical_crossentropy")</textarea>
+            <div class="sandbox-controls">
+              <button class="sandbox-btn run-btn" onclick="runCode()">▶️ Run Code</button>
+              <button class="sandbox-btn reset-btn" onclick="resetCode()">🔄 Reset</button>
+            </div>
+            <div class="output-console" id="console">Output will appear here...</div>
+          </div>
+
+          <div class="pitfall">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <strong>Common Pitfall:</strong> Using <code>softmax</code> for regression → your predictions will be squashed between 0-1. Use no activation instead!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 8: Interactive Quiz -->
+      <div class="accordion-item">
+        <div class="accordion-header">🧠 8. Test Your Knowledge: Mini Quiz</div>
+        <div class="accordion-content">
+          <div class="quiz-container">
+            <div class="quiz-title">Keras Quick Quiz</div>
+            
+            <div class="quiz-question">1. Which API should you use for a simple feedforward network?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, true)">Sequential API</div>
+              <div class="quiz-option" onclick="checkAnswer(this, false)">Functional API</div>
+              <div class="quiz-option" onclick="checkAnswer(this, false)">Model Subclassing</div>
+            </div>
+            
+            <div class="quiz-question">2. What loss function should you use for predicting house prices?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false)">categorical_crossentropy</div>
+              <div class="quiz-option" onclick="checkAnswer(this, true)">mean_squared_error</div>
+              <div class="quiz-option" onclick="checkAnswer(this, false)">binary_crossentropy</div>
+            </div>
+            
+            <div class="quiz-question">3. Which layer is best for image data?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="checkAnswer(this, false)">Dense</div>
+              <div class="quiz-option" onclick="checkAnswer(this, true)">Conv2D</div>
+              <div class="quiz-option" onclick="checkAnswer(this, false)">LSTM</div>
+            </div>
+            
+            <div class="quiz-feedback" id="quiz-feedback">Answer questions to see feedback!</div>
+          </div>
+
+          <div class="pro-tip">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Pro Tip:</strong> Got a question wrong? That’s great! It means you’ve found a knowledge gap to fill. Review the relevant section.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 9: Next Steps -->
+      <div class="accordion-item">
+        <div class="accordion-header">🚀 9. What’s Next? Your Keras Journey</div>
+        <div class="accordion-content">
+          <p>You’ve mastered the Keras fundamentals! Now it’s time to build something amazing.</p>
+          
+          <div class="next-unit glow">
+            <h3><i class="fas fa-rocket"></i> Ready for Unit 3?</h3>
+            <p>Next up: Convolutional Neural Networks (CNNs) for image classification, data augmentation, transfer learning with pre-trained models, and building your first real-world image classifier!</p>
+          </div>
+
+          <div class="section-tag">Practice Projects</div>
+          <ul>
+            <li>Build a digit classifier for MNIST dataset</li>
+            <li>Predict house prices using the Boston Housing dataset</li>
+            <li>Create a movie review sentiment classifier</li>
+          </ul>
+
+          <div class="pro-tip">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Pro Tip:</strong> The best way to learn is by doing. Pick a dataset from Kaggle or TensorFlow Datasets and build something today!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>✅ Unit 2 Complete • 📈 85% Overall Progress • <strong>Next: Unit 3 - CNNs & Image Classification</strong></p>
+      <p>© 2025 Learning Galaxy • Crafted with 🧠 and 💖 for Future AI Builders</p>
+    </footer>
   </div>
 
-  <div class="content">
-    <h2>What You’ll Learn</h2>
-    <p>Dive into the essential building blocks. Master the theories and models that power advanced applications.</p>
+  <script>
+    // Accordion functionality
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close all items
+        document.querySelectorAll('.accordion-item').forEach(i => {
+          i.classList.remove('active');
+        });
+        
+        // Open clicked item if it wasn't already active
+        if (!isActive) {
+          item.classList.add('active');
+          // Smooth scroll to top of opened item
+          setTimeout(() => {
+            item.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+          }, 300);
+        }
+      });
+    });
 
-    <h2>Topics Covered</h2>
-    <p>• Foundational models and architectures<br>• Data flow and transformations<br>• Core algorithms and patterns<br>• Debugging and validation techniques</p>
+    // Drag and Drop for Layer Builder
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
 
-    <div class="coming-soon">✨ Content coming soon!</div>
-  </div>
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      const data = ev.dataTransfer.getData("text");
+      const layerType = document.getElementById(data).querySelector('.layer-name').textContent;
+      
+      // Create new layer element
+      const newLayer = document.createElement('div');
+      newLayer.className = 'model-layer pulse';
+      newLayer.textContent = layerType;
+      newLayer.draggable = true;
+      newLayer.addEventListener('dragstart', function(e) {
+        e.dataTransfer.setData("text", e.target.textContent);
+      });
+      
+      // Add remove button
+      const removeBtn = document.createElement('span');
+      removeBtn.innerHTML = ' ×';
+      removeBtn.style.cursor = 'pointer';
+      removeBtn.style.marginLeft = '10px';
+      removeBtn.style.fontWeight = 'bold';
+      removeBtn.addEventListener('click', function() {
+        newLayer.remove();
+      });
+      newLayer.appendChild(removeBtn);
+      
+      // Add to canvas
+      ev.target.appendChild(newLayer);
+      
+      // Show success message
+      if (ev.target.querySelector('p')) {
+        ev.target.querySelector('p').remove();
+      }
+    }
+
+    // Simulate Training
+    function simulateTraining() {
+      const epochs = 10;
+      const loss = [];
+      const accuracy = [];
+      
+      // Generate simulated training data
+      for (let i = 0; i < epochs; i++) {
+        // Loss decreases over time
+        loss.push(2.3 - (i * 0.2) + (Math.random() * 0.1));
+        // Accuracy increases over time
+        accuracy.push(0.1 + (i * 0.08) + (Math.random() * 0.05));
+      }
+      
+      // Create Plotly chart
+      const data = [
+        {
+          x: Array.from({length: epochs}, (_, i) => i + 1),
+          y: loss,
+          type: 'scatter',
+          mode: 'lines+markers',
+          name: 'Loss',
+          line: {color: '#ef5350', width: 3},
+          marker: {size: 8}
+        },
+        {
+          x: Array.from({length: epochs}, (_, i) => i + 1),
+          y: accuracy,
+          type: 'scatter',
+          mode: 'lines+markers',
+          name: 'Accuracy',
+          yaxis: 'y2',
+          line: {color: '#66bb6a', width: 3},
+          marker: {size: 8}
+        }
+      ];
+      
+      const layout = {
+        title: 'Training Progress',
+        xaxis: {title: 'Epoch', gridcolor: '#444'},
+        yaxis: {title: 'Loss', gridcolor: '#444', side: 'left'},
+        yaxis2: {title: 'Accuracy', overlaying: 'y', side: 'right'},
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        font: {color: '#e0e0e0'},
+        showlegend: true,
+        legend: {y: 1.2}
+      };
+      
+      Plotly.newPlot('training-chart', data, layout);
+      
+      // Show alert
+      alert('Training simulation started! Watch the chart update.');
+    }
+
+    // Code Sandbox
+    function runCode() {
+      const console = document.getElementById('console');
+      console.innerHTML = '';
+      
+      // Get code from editor
+      const code = document.getElementById('code-editor').value;
+      
+      // Simulate running code
+      console.innerHTML += '▶️ Running your Keras code...\n';
+      setTimeout(() => {
+        console.innerHTML += '✅ Importing TensorFlow...\n';
+      }, 500);
+      setTimeout(() => {
+        console.innerHTML += '✅ Building Sequential model...\n';
+      }, 1000);
+      setTimeout(() => {
+        console.innerHTML += '✅ Compiling model with Adam optimizer...\n';
+      }, 1500);
+      setTimeout(() => {
+        console.innerHTML += '🎉 Success! Model ready for training.\n';
+        console.innerHTML += '📌 Tip: Call model.fit() to start training!';
+      }, 2000);
+    }
+
+    function resetCode() {
+      document.getElementById('code-editor').value = `from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+# Build model for 10-class classification
+model = Sequential([
+    Dense(128, activation='relu', input_shape=(784,)),
+    Dense(64, activation='relu'),
+    Dense(10, activation='softmax')  # 10 classes
+])
+
+# Compile with correct loss for classification
+model.compile(
+    optimizer='adam',
+    loss='sparse_categorical_crossentropy',  # For integer labels
+    metrics=['accuracy']
+)
+
+print("✅ Model configured for CLASSIFICATION!")
+print("Output layer: 10 neurons with softmax")
+print("Loss: sparse_categorical_crossentropy")`;
+      document.getElementById('console').innerHTML = 'Output will appear here...';
+    }
+
+    // Quiz Functionality
+    function checkAnswer(element, isCorrect) {
+      // Reset all options
+      document.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.classList.remove('correct', 'incorrect');
+      });
+      
+      // Mark selected option
+      if (isCorrect) {
+        element.classList.add('correct');
+        document.getElementById('quiz-feedback').innerHTML = '🎉 Correct! Great job!';
+        document.getElementById('quiz-feedback').className = 'quiz-feedback feedback-correct';
+      } else {
+        element.classList.add('incorrect');
+        document.getElementById('quiz-feedback').innerHTML = '❌ Not quite. Review the section on loss functions and layer types!';
+        document.getElementById('quiz-feedback').className = 'quiz-feedback feedback-incorrect';
+      }
+    }
+
+    // Export notes function
+    function exportNotes() {
+      const content = `
+🌟 UNIT 2: KERAS DEEP DIVE 🌟
+=============================
+
+🚀 1. WHAT IS KERAS?
+- High-level API on top of TensorFlow
+- Lets you build models in minutes, not hours
+- Pro Tip: Always use tf.keras
+
+🧩 2. CORE COMPONENTS
+- Layers: Dense, Conv2D, LSTM, Dropout
+- Models: Sequential (linear) vs Functional (complex)
+- Optimizers: Adam (default), SGD, RMSprop
+- Loss Functions: categorical_crossentropy, mse
+- Metrics: accuracy, AUC, precision
+
+🧠 3. LAYER TYPES
+- Dense: Fully connected, for tabular/final layers
+- Conv2D: For images, learns spatial hierarchies
+- LSTM: For sequences (text, time series)
+- Dropout: Prevents overfitting (use after Dense/Conv)
+
+⚖️ 4. SEQUENTIAL vs FUNCTIONAL
+- Sequential: Simple, linear, 90% of use cases
+- Functional: Complex, multiple inputs/outputs, skip connections
+- Pro Tip: Start with Sequential!
+
+⚙️ 5. COMPILATION
+- model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+- Classification: sparse_categorical_crossentropy + softmax
+- Regression: mean_squared_error + no activation
+
+🏋️ 6. TRAINING WITH FIT
+- model.fit(X_train, y_train, epochs=10, batch_size=32, validation_data=(X_val, y_val))
+- epochs: full passes through data
+- batch_size: samples per weight update (32, 64, 128)
+- Pro Tip: ALWAYS use validation_data!
+
+🎯 7. CLASSIFICATION vs REGRESSION
+- Classification: Predict categories → softmax + categorical_crossentropy
+- Regression: Predict numbers → no activation + mean_squared_error
+- Pitfall: Using softmax for regression → predictions squashed to 0-1!
+
+🧠 8. QUIZ ANSWERS
+- 1. Sequential API
+- 2. mean_squared_error
+- 3. Conv2D
+
+🚀 9. NEXT STEPS
+- Build MNIST digit classifier
+- Try house price prediction
+- Next: Unit 3 - CNNs & Image Classification!
+      `;
+      
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'unit2-keras-deep-dive-notes.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      alert('🎉 Keras study notes downloaded! Check your downloads folder.');
+    }
+
+    // Reset page function
+    function resetPage() {
+      if (confirm('Reset your progress on this page? This will close all sections and clear the layer builder.')) {
+        document.querySelectorAll('.accordion-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        document.getElementById('canvas').innerHTML = '<p>Drop layers here to build your model!</p>';
+        document.getElementById('training-chart').innerHTML = '';
+        document.getElementById('console').innerHTML = 'Output will appear here...';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        alert('✅ Page reset! Start fresh.');
+      }
+    }
+
+    // Initialize first accordion open
+    document.addEventListener('DOMContentLoaded', () => {
+      // Create initial training chart if needed
+      const data = [{x: [1], y: [1], type: 'scatter'}];
+      const layout = {
+        title: 'Training Progress (Start simulation to see data)',
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        font: {color: '#e0e0e0'}
+      };
+      Plotly.newPlot('training-chart', data, layout);
+    });
+  </script>
 </body>
 </html>
