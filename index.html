@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Interactive Learning Galaxy 🌌</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Interactive Units Dashboard</title>
   <style>
     * {
       margin: 0;
@@ -13,40 +12,20 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    :root {
-      --primary-glow: #a18cd1;
-      --secondary-glow: #ff9a9e;
-      --tertiary-glow: #4dd0e1;
-    }
-
     body {
-      background: linear-gradient(125deg, #0f0c29, #302b63, #24243e);
+      background: linear-gradient(125deg, #1a1a2e, #16213e, #0f3460);
       background-size: 400% 400%;
-      animation: gradientBG 18s ease infinite;
+      animation: gradientBG 15s ease infinite;
       min-height: 100vh;
       overflow-x: hidden;
       color: #fff;
       perspective: 1000px;
-      cursor: none;
     }
 
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
-    }
-
-    .custom-cursor {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.7);
-      pointer-events: none;
-      z-index: 9999;
-      mix-blend-mode: difference;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s ease;
     }
 
     .container {
@@ -62,242 +41,111 @@
 
     h1 {
       font-size: 3.5rem;
-      font-weight: 800;
+      font-weight: 700;
       text-align: center;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #ff9a9e, #fecfef, #a18cd1, #4dd0e1);
+      margin-bottom: 3rem;
+      background: linear-gradient(to right, #ff9a9e, #fecfef, #a18cd1);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      letter-spacing: 2px;
-      text-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      animation: fadeInUp 1.2s ease forwards, glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px var(--primary-glow); }
-      to { text-shadow: 0 0 30px var(--secondary-glow), 0 0 60px var(--tertiary-glow); }
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      animation: fadeInUp 1s ease forwards;
     }
 
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(50px) rotateX(30deg);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
-        transform: translateY(0) rotateX(0deg);
+        transform: translateY(0);
       }
-    }
-
-    .subtitle {
-      font-size: 1.2rem;
-      opacity: 0.8;
-      margin-bottom: 3rem;
-      text-align: center;
-      max-width: 600px;
-      line-height: 1.6;
-      animation: fadeInUp 1s ease 0.3s forwards;
-      opacity: 0;
     }
 
     .units-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      max-width: 1400px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
       width: 100%;
-      padding: 2rem 0;
     }
 
-    .unit-card {
+    .unit-btn {
       position: relative;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
-      padding: 2.2rem 1.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
       text-align: center;
       cursor: pointer;
-      transform-style: preserve-3d;
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.2),
-        inset 0 0 20px rgba(255, 255, 255, 0.05);
-      transform: translateY(0) rotateX(0deg) rotateY(0deg);
-      overflow: visible;
-      z-index: 1;
-    }
-
-    .unit-card::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, #ff9a9e, #fecfef, #a18cd1, #4dd0e1);
-      z-index: -1;
-      border-radius: 26px;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .unit-card:hover::before {
-      opacity: 1;
-    }
-
-    .unit-card:hover {
-      transform: translateY(-20px) rotateX(5deg) rotateY(5deg) scale(1.06);
-      box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.4),
-        0 0 40px var(--primary-glow),
-        inset 0 0 30px rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .unit-card h3 {
-      font-size: 2rem;
-      margin: 1rem 0 0.5rem;
-      font-weight: 700;
-      background: linear-gradient(to right, #ff9a9e, #a18cd1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .unit-card p {
-      font-size: 1.05rem;
-      opacity: 0.85;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      transition: opacity 0.3s ease;
-    }
-
-    .unit-card:hover p {
-      opacity: 1;
-    }
-
-    .icon-wrapper {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 50%;
-      font-size: 2.8rem;
-      transition: all 0.4s ease;
-      position: relative;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transform: translateY(0);
       overflow: hidden;
     }
 
-    .unit-card:hover .icon-wrapper {
-      transform: scale(1.2) rotate(15deg);
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 30px var(--secondary-glow);
-    }
-
-    /* Progress Orb */
-    .progress-orb {
+    .unit-btn::before {
+      content: '';
       position: absolute;
-      top: -15px;
-      right: -15px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: bold;
-      backdrop-filter: blur(5px);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      animation: pulse 2s infinite;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.7; }
-      50% { transform: scale(1.1); opacity: 1; }
+    .unit-btn:hover::before {
+      left: 100%;
     }
 
-    /* Floating + Depth Animation */
-    .unit-card:nth-child(1) { animation: float 5s ease-in-out 0s infinite; }
-    .unit-card:nth-child(2) { animation: float 7s ease-in-out 0.5s infinite; }
-    .unit-card:nth-child(3) { animation: float 6s ease-in-out 1s infinite; }
-    .unit-card:nth-child(4) { animation: float 8s ease-in-out 1.5s infinite; }
-    .unit-card:nth-child(5) { animation: float 5.5s ease-in-out 2s infinite; }
-    .unit-card:nth-child(6) { animation: float 7.5s ease-in-out 2.5s infinite; }
+    .unit-btn:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .unit-btn h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .unit-btn p {
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .unit-btn i {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .unit-btn:hover i {
+      transform: scale(1.2) rotate(10deg);
+    }
+
+    /* Floating animation */
+    .unit-btn:nth-child(1) { animation: float 4s ease-in-out 0s infinite; }
+    .unit-btn:nth-child(2) { animation: float 5s ease-in-out 0.5s infinite; }
+    .unit-btn:nth-child(3) { animation: float 6s ease-in-out 1s infinite; }
+    .unit-btn:nth-child(4) { animation: float 5s ease-in-out 1.5s infinite; }
+    .unit-btn:nth-child(5) { animation: float 4s ease-in-out 2s infinite; }
+    .unit-btn:nth-child(6) { animation: float 6s ease-in-out 2.5s infinite; }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
-      50% { transform: translateY(-15px) rotateX(3deg) rotateY(2deg); }
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
     }
 
-    /* Unlock hint */
-    .unlock-hint {
-      position: absolute;
-      bottom: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.7);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-      white-space: nowrap;
-    }
-
-    .unit-card:hover .unlock-hint {
-      opacity: 1;
-    }
-
-    /* Footer */
-    .footer {
-      margin-top: 4rem;
-      font-size: 0.95rem;
-      opacity: 0.7;
-      text-align: center;
-      position: relative;
-      z-index: 10;
-    }
-
-    .controls {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      gap: 10px;
-      z-index: 100;
-    }
-
-    .control-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      backdrop-filter: blur(5px);
-      transition: all 0.3s ease;
-    }
-
-    .control-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
-    }
-
-    /* Particles */
+    /* Optional: Add particles in background */
     #particles-js {
       position: absolute;
       top: 0;
@@ -309,227 +157,135 @@
 
     @media (max-width: 768px) {
       h1 { font-size: 2.5rem; }
-      .unit-card { padding: 1.8rem 1.2rem; }
-      .unit-card h3 { font-size: 1.7rem; }
-      .icon-wrapper { width: 70px; height: 70px; font-size: 2.3rem; }
+      .unit-btn { padding: 1.5rem 1rem; }
+      .unit-btn h3 { font-size: 1.5rem; }
     }
 
-    @media (max-width: 480px) {
-      .units-grid { gap: 1.5rem; grid-template-columns: 1fr; }
-      h1 { font-size: 2rem; }
+    .footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="custom-cursor"></div>
   <div id="particles-js"></div>
 
   <div class="container">
-    <h1>🚀 Learning Galaxy</h1>
-    <p class="subtitle">Embark on an interstellar journey through knowledge. Each unit is a planet waiting to be explored. Hover, click, and discover.</p>
-    
+    <h1>🎓 Explore Deep Learning Units</h1>
     <div class="units-grid">
-      <div class="unit-card" data-unit="1" onclick="navigateToUnit(1)">
-        <div class="progress-orb">75%</div>
-        <div class="icon-wrapper">📚</div>
+      <div class="unit-btn" onclick="navigateToUnit(1)">
+        <i>📚</i>
         <h3>Unit 1</h3>
         <p>Foundations & Basics</p>
-        <div class="unlock-hint">Click to launch mission</div>
       </div>
-      <div class="unit-card" data-unit="2" onclick="navigateToUnit(2)">
-        <div class="progress-orb">40%</div>
-        <div class="icon-wrapper">⚙️</div>
+      <div class="unit-btn" onclick="navigateToUnit(2)">
+        <i>⚙️</i>
         <h3>Unit 2</h3>
         <p>Core Concepts</p>
-        <div class="unlock-hint">Complete Unit 1 to unlock</div>
       </div>
-      <div class="unit-card" data-unit="3" onclick="navigateToUnit(3)">
-        <div class="progress-orb">10%</div>
-        <div class="icon-wrapper">🔬</div>
+      <div class="unit-btn" onclick="navigateToUnit(3)">
+        <i>🔬</i>
         <h3>Unit 3</h3>
         <p>Advanced Techniques</p>
-        <div class="unlock-hint">Complete Unit 2 to unlock</div>
       </div>
-      <div class="unit-card" data-unit="4" onclick="navigateToUnit(4)">
-        <div class="progress-orb">0%</div>
-        <div class="icon-wrapper">🧠</div>
+      <div class="unit-btn" onclick="navigateToUnit(4)">
+        <i>🧠</i>
         <h3>Unit 4</h3>
         <p>Critical Thinking</p>
-        <div class="unlock-hint">Complete Unit 3 to unlock</div>
       </div>
-      <div class="unit-card" data-unit="5" onclick="navigateToUnit(5)">
-        <div class="progress-orb">0%</div>
-        <div class="icon-wrapper">🌍</div>
+      <div class="unit-btn" onclick="navigateToUnit(5)">
+        <i>🌍</i>
         <h3>Unit 5</h3>
         <p>Real World Apps</p>
-        <div class="unlock-hint">Complete Unit 4 to unlock</div>
       </div>
-      <div class="unit-card" data-unit="6" onclick="navigateToUnit(6)">
-        <div class="progress-orb">0%</div>
-        <div class="icon-wrapper">🚀</div>
+      <div class="unit-btn" onclick="navigateToUnit(6)">
+        <i>🚀</i>
         <h3>Unit 6</h3>
         <p>Master Project</p>
-        <div class="unlock-hint">Become a master explorer</div>
       </div>
     </div>
 
     <div class="footer">
-      👉 Hover, tilt, and click to begin your cosmic learning adventure
+      Click any unit to begin your journey →
     </div>
   </div>
 
-  <div class="controls">
-    <div class="control-btn" id="soundToggle" title="Toggle Sound">
-      <i class="fas fa-volume-up"></i>
-    </div>
-    <div class="control-btn" id="musicToggle" title="Toggle Ambient Music">
-      <i class="fas fa-music"></i>
-    </div>
-  </div>
-
-  <!-- Libraries -->
+  <!-- Particles.js for animated background (Optional but highly recommended) -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/celebrate@1.0.0/dist/celebrate.min.js"></script>
-
   <script>
-    // Custom Cursor
-    const cursor = document.querySelector('.custom-cursor');
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-
-    // Particles
+    // Initialize particles
     particlesJS("particles-js", {
       "particles": {
-        "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
         "color": { "value": "#ffffff" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1 } },
-        "size": { "value": 3, "random": true },
-        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 },
-        "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+          "polygon": { "nb_sides": 5 }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+          "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.2,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
+        }
       },
       "interactivity": {
+        "detect_on": "canvas",
         "events": {
           "onhover": { "enable": true, "mode": "grab" },
           "onclick": { "enable": true, "mode": "push" },
           "resize": true
         },
         "modes": {
-          "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+          "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
           "push": { "particles_nb": 4 }
         }
       },
       "retina_detect": true
     });
 
-    // Sound toggle
-    let soundEnabled = true;
-    const hoverSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU'); // silent placeholder
-    const clickSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU');
-
-    document.getElementById('soundToggle').addEventListener('click', () => {
-      soundEnabled = !soundEnabled;
-      const icon = document.querySelector('#soundToggle i');
-      if (soundEnabled) {
-        icon.className = 'fas fa-volume-up';
-      } else {
-        icon.className = 'fas fa-volume-mute';
-      }
-    });
-
-    // Ambient music (optional)
-    const ambientMusic = new Audio('https://assets.mixkit.co/active_storage/sfx/214/214-preview.mp3');
-    ambientMusic.loop = true;
-    let musicPlaying = false;
-
-    document.getElementById('musicToggle').addEventListener('click', () => {
-      const icon = document.querySelector('#musicToggle i');
-      if (musicPlaying) {
-        ambientMusic.pause();
-        icon.className = 'fas fa-music';
-        musicPlaying = false;
-      } else {
-        ambientMusic.play();
-        icon.className = 'fas fa-pause';
-        musicPlaying = true;
-      }
-    });
-
-    // Card Tilt Effect
-    const cards = document.querySelectorAll('.unit-card');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        if (window.innerWidth > 768) {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          const rotateY = ((x - centerX) / centerX) * 10;
-          const rotateX = ((centerY - y) / centerY) * 10;
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
-        }
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-
-      // Hover sound
-      card.addEventListener('mouseenter', () => {
-        if (soundEnabled) {
-          hoverSound.currentTime = 0;
-          hoverSound.play().catch(() => {});
-        }
-      });
-    });
-
-    // Navigate with confetti
+    // Button click handler
     function navigateToUnit(unit) {
-      // Play click sound
-      if (soundEnabled) {
-        clickSound.currentTime = 0;
-        clickSound.play().catch(() => {});
-      }
-
-      // Confetti!
-      celebrate({
-        emojis: ['🎓', '🚀', '🧠', '📚', '🔬', '🌍'],
-        spread: 60,
-        count: 80,
-        speed: 50
+      // Add subtle click animation
+      document.querySelectorAll('.unit-btn').forEach(btn => {
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          btn.style.transform = '';
+        }, 150);
       });
 
-      // Scale animation
-      const card = document.querySelector(`.unit-card[data-unit="${unit}"]`);
-      card.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        card.style.transform = '';
-        // Redirect after animation
-        setTimeout(() => {
-          window.location.href = `unit${unit}.html`;
-        }, 300);
-      }, 150);
+      // Here you can redirect or load content
+      <!-- alert(`🚀 Navigating to Unit${unit}...`); -->
+
+      // Example redirect (uncomment to use):
+      window.location.href = `unit${unit}.html`;
     }
 
-    // Optional: Unlock logic (you can expand this later with localStorage)
-    cards.forEach(card => {
-      const unit = parseInt(card.dataset.unit);
-      if (unit > 1) {
-        card.style.opacity = '0.6';
-        card.style.pointerEvents = 'none';
-        card.querySelector('.unlock-hint').textContent = `🔒 Complete Unit ${unit - 1}`;
-      }
-    });
-
-    // Re-enable Unit 2 for demo
-    document.querySelector('.unit-card[data-unit="2"]').style.opacity = '1';
-    document.querySelector('.unit-card[data-unit="2"]').style.pointerEvents = 'auto';
-    document.querySelector('.unit-card[data-unit="2"] .unlock-hint').textContent = 'Click to launch mission';
-
-    // Parallax
+    // Optional: Add parallax effect on mouse move
     document.addEventListener('mousemove', (e) => {
       const x = (window.innerWidth - e.pageX * 2) / 50;
       const y = (window.innerHeight - e.pageY * 2) / 50;
@@ -538,4 +294,3 @@
   </script>
 </body>
 </html>
-
