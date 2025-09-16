@@ -1,0 +1,352 @@
+<script>
+  // Data structure: nodes and links (unchanged)
+  const data = {
+    nodes: [
+      { id: "Deep Learning Unit 1", group: 0, size: 10 },
+      { id: "Deep Learning", group: 1, size: 8 },
+      { id: "Machine Learning Basics", group: 1, size: 8 },
+      { id: "Tensors", group: 1, size: 8 },
+      { id: "Computation Graph", group: 1, size: 8 },
+      { id: "Variables & Operations", group: 1, size: 8 },
+      { id: "DL Libraries", group: 1, size: 8 },
+      { id: "Optimizers", group: 1, size: 8 },
+      { id: "Vanishing Gradient", group: 1, size: 8 },
+      { id: "TensorFlow Intro", group: 1, size: 8 },
+      { id: "TensorBoard", group: 1, size: 8 },
+      // Sub-nodes
+      { id: "Neurons", group: 2, size: 6 },
+      { id: "Layers", group: 2, size: 6 },
+      { id: "Rules from data", group: 2, size: 6 },
+      { id: "Feature Hierarchy", group: 2, size: 6 },
+      { id: "Embeddings", group: 2, size: 6 },
+      { id: "dtype", group: 2, size: 6 },
+      { id: "PyTorch", group: 2, size: 6 },
+      { id: "Auto Differentiation", group: 2, size: 6 },
+      { id: "ReLU", group: 2, size: 6 },
+      { id: "BatchNorm", group: 2, size: 6 },
+      { id: "Rank", group: 2, size: 6 },
+      { id: "tf.constant", group: 2, size: 6 },
+      { id: "Shape", group: 2, size: 6 },
+      { id: "tf.Variable", group: 2, size: 6 },
+      { id: "ResNet", group: 2, size: 6 },
+      { id: "Cat vs Dog Example", group: 2, size: 6 },
+      { id: "Nodes=Ops", group: 2, size: 6 },
+      { id: "Edges=Tensors", group: 2, size: 6 },
+      { id: "Build", group: 2, size: 6 },
+      { id: "Histograms", group: 2, size: 6 },
+      { id: "Sigmoid issue", group: 2, size: 6 },
+      { id: "add/multiply/matmul", group: 2, size: 6 },
+      { id: "Graph", group: 2, size: 6 },
+      { id: "Train", group: 2, size: 6 },
+      { id: "Loss/Accuracy", group: 2, size: 6 },
+      { id: "Deploy", group: 2, size: 6 },
+      { id: "TensorFlow", group: 2, size: 6 },
+      { id: "Keras", group: 2, size: 6 },
+      { id: "RMSprop", group: 2, size: 6 },
+      { id: "Adam (default)", group: 2, size: 6 },
+      { id: "SGD", group: 2, size: 6 }
+    ],
+    links: [
+      // Central node to main branches
+      { source: "Deep Learning Unit 1", target: "Deep Learning" },
+      { source: "Deep Learning Unit 1", target: "Machine Learning Basics" },
+      { source: "Deep Learning Unit 1", target: "Tensors" },
+      { source: "Deep Learning Unit 1", target: "Computation Graph" },
+      { source: "Deep Learning Unit 1", target: "Variables & Operations" },
+      { source: "Deep Learning Unit 1", target: "DL Libraries" },
+      { source: "Deep Learning Unit 1", target: "Optimizers" },
+      { source: "Deep Learning Unit 1", target: "Vanishing Gradient" },
+      { source: "Deep Learning Unit 1", target: "TensorFlow Intro" },
+      { source: "Deep Learning Unit 1", target: "TensorBoard" },
+      // Main branches to sub-nodes
+      { source: "Deep Learning", target: "Neurons" },
+      { source: "Deep Learning", target: "Layers" },
+      { source: "Deep Learning", target: "Rules from data" },
+      { source: "Deep Learning", target: "Feature Hierarchy" },
+      { source: "Deep Learning", target: "Embeddings" },
+      { source: "Deep Learning", target: "dtype" },
+      { source: "Machine Learning Basics", target: "PyTorch" },
+      { source: "Machine Learning Basics", target: "Auto Differentiation" },
+      { source: "Machine Learning Basics", target: "ReLU" },
+      { source: "Machine Learning Basics", target: "BatchNorm" },
+      { source: "Machine Learning Basics", target: "Rank" },
+      { source: "Tensors", target: "tf.constant" },
+      { source: "Tensors", target: "Shape" },
+      { source: "Tensors", target: "tf.Variable" },
+      { source: "Tensors", target: "ResNet" },
+      { source: "Tensors", target: "Cat vs Dog Example" },
+      { source: "Computation Graph", target: "Nodes=Ops" },
+      { source: "Computation Graph", target: "Edges=Tensors" },
+      { source: "Computation Graph", target: "Build" },
+      { source: "Computation Graph", target: "Histograms" },
+      { source: "Computation Graph", target: "Sigmoid issue" },
+      { source: "Variables & Operations", target: "add/multiply/matmul" },
+      { source: "Variables & Operations", target: "Graph" },
+      { source: "Variables & Operations", target: "Train" },
+      { source: "Variables & Operations", target: "Loss/Accuracy" },
+      { source: "Variables & Operations", target: "Deploy" },
+      { source: "DL Libraries", target: "TensorFlow" },
+      { source: "DL Libraries", target: "Keras" },
+      { source: "DL Libraries", target: "RMSprop" },
+      { source: "DL Libraries", target: "Adam (default)" },
+      { source: "DL Libraries", target: "SGD" },
+      { source: "Optimizers", target: "Adam (default)" },
+      { source: "Optimizers", target: "RMSprop" },
+      { source: "Optimizers", target: "SGD" },
+      { source: "Optimizers", target: "Keras" },
+      { source: "Optimizers", target: "tf.Variable" },
+      { source: "Optimizers", target: "Shape" },
+      { source: "Vanishing Gradient", target: "ReLU" },
+      { source: "Vanishing Gradient", target: "BatchNorm" },
+      { source: "Vanishing Gradient", target: "tf.constant" },
+      { source: "Vanishing Gradient", target: "ResNet" },
+      { source: "Vanishing Gradient", target: "Cat vs Dog Example" },
+      { source: "TensorFlow Intro", target: "TensorBoard" },
+      { source: "TensorFlow Intro", target: "Train" },
+      { source: "TensorFlow Intro", target: "Graph" },
+      { source: "TensorFlow Intro", target: "add/multiply/matmul" },
+      { source: "TensorBoard", target: "Loss/Accuracy" },
+      { source: "TensorBoard", target: "Deploy" },
+      { source: "TensorBoard", target: "Graph" },
+      { source: "TensorBoard", target: "add/multiply/matmul" }
+    ]
+  };
+
+  // Node descriptions (unchanged)
+  const descriptions = {
+    "Deep Learning Unit 1": "Welcome to the start of your deep learning journey! This is the central hub of all concepts.",
+    "Deep Learning": "Deep learning uses neural networks with many layers to learn complex patterns from data.",
+    "Machine Learning Basics": "Foundations of ML: training models to find rules from data.",
+    "Tensors": "Multi-dimensional arrays used to represent data in deep learning (scalars, vectors, matrices, etc.).",
+    "Computation Graph": "A directed graph that represents operations and data flow in neural networks.",
+    "Variables & Operations": "Core building blocks: variables store parameters, operations define computations.",
+    "DL Libraries": "Tools like TensorFlow and PyTorch make building models easy.",
+    "Optimizers": "Algorithms that update model weights to minimize loss (e.g., Adam, SGD).",
+    "Vanishing Gradient": "Problem where gradients become too small during backpropagation, slowing learning.",
+    "TensorFlow Intro": "Google's open-source framework for machine learning and AI.",
+    "TensorBoard": "Visualization tool to monitor training progress, losses, and model graphs.",
+    "Neurons": "Basic unit of a neural network that performs weighted sum + activation.",
+    "Layers": "Stacked neurons that process data sequentially (input, hidden, output).",
+    "Rules from data": "Models learn patterns automatically from examples.",
+    "Feature Hierarchy": "Deeper layers detect higher-level features (edges → shapes → objects).",
+    "Embeddings": "Convert categorical data (like words) into dense vectors.",
+    "dtype": "Data type of tensor elements (e.g., float32, int64).",
+    "PyTorch": "Popular Python library for deep learning, known for dynamic computation graphs.",
+    "Auto Differentiation": "Automatically computes gradients for backpropagation.",
+    "ReLU": "Rectified Linear Unit: f(x) = max(0, x), helps avoid vanishing gradients.",
+    "BatchNorm": "Normalizes layer inputs to stabilize training.",
+    "Rank": "Number of dimensions in a tensor (e.g., rank-2 = matrix).",
+    "tf.constant": "Creates a constant tensor in TensorFlow.",
+    "Shape": "Dimensions of a tensor (e.g., [32, 28, 28] for batch of images).",
+    "tf.Variable": "Holds trainable parameters in TensorFlow.",
+    "ResNet": "Residual Networks use skip connections to train very deep models.",
+    "Cat vs Dog Example": "Classic image classification task to demonstrate CNNs.",
+    "Nodes=Ops": "Each node in a computation graph is an operation (e.g., add, multiply).",
+    "Edges=Tensors": "Edges carry data (tensors) between operations.",
+    "Build": "Constructing the model architecture step-by-step.",
+    "Histograms": "Visualize distribution of weights or activations.",
+    "Sigmoid issue": "Sigmoid function saturates, causing vanishing gradients.",
+    "add/multiply/matmul": "Basic operations in neural networks.",
+    "Graph": "Structure of the model represented as a graph.",
+    "Train": "Process of updating weights using data and optimizer.",
+    "Loss/Accuracy": "Metrics to evaluate model performance.",
+    "Deploy": "Putting trained model into production.",
+    "TensorFlow": "Framework for building and running machine learning models.",
+    "Keras": "High-level API for TensorFlow, simplifies model creation.",
+    "RMSprop": "Optimizer that adapts learning rate per parameter.",
+    "Adam (default)": "Most popular optimizer combining momentum and RMSprop.",
+    "SGD": "Stochastic Gradient Descent: basic optimization algorithm."
+  };
+
+  // Create SVG container
+  const svg = d3.select("#graph").append("svg")
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("viewBox", "0 0 800 600");
+
+  // SVG defs for gradients and glow
+  const defs = svg.append("defs");
+  defs.append("radialGradient")
+    .attr("id", "node-gradient")
+    .selectAll("stop")
+    .data([
+      { offset: "0%", color: "#fff" },
+      { offset: "80%", color: "#90caf9" },
+      { offset: "100%", color: "#512da8" }
+    ])
+    .enter().append("stop")
+    .attr("offset", d => d.offset)
+    .attr("stop-color", d => d.color);
+
+  // Link gradient
+  const linkGrad = defs.append("linearGradient")
+    .attr("id", "link-gradient")
+    .attr("x1", "0%").attr("y1", "0%")
+    .attr("x2", "100%").attr("y2", "0%");
+  linkGrad.append("stop").attr("offset", "0%").attr("stop-color", "#7e57c2");
+  linkGrad.append("stop").attr("offset", "100%").attr("stop-color", "#42a5f5");
+
+  // Glow filter
+  const filter = defs.append("filter")
+    .attr("id", "glow");
+  filter.append("feGaussianBlur")
+    .attr("stdDeviation", "3.5")
+    .attr("result", "coloredBlur");
+  const feMerge = filter.append("feMerge");
+  feMerge.append("feMergeNode").attr("in", "coloredBlur");
+  feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+
+  // Color palette for groups
+  const color = d3.scaleOrdinal()
+    .domain([0, 1, 2])
+    .range(["#FFD700", "#42a5f5", "#81c784"]);
+
+  // Force simulation
+  const simulation = d3.forceSimulation(data.nodes)
+    .force("link", d3.forceLink(data.links).id(d => d.id).distance(120))
+    .force("charge", d3.forceManyBody().strength(-420))
+    .force("center", d3.forceCenter(400, 300))
+    .force("collide", d3.forceCollide(d => d.size * 5.5));
+
+  // Create link lines
+  const link = svg.append("g")
+    .attr("class", "links")
+    .selectAll("line")
+    .data(data.links)
+    .enter().append("line")
+    .attr("class", "link");
+
+  // Create nodes
+  const node = svg.append("g")
+    .attr("class", "nodes")
+    .selectAll("g")
+    .data(data.nodes)
+    .enter().append("g")
+    .attr("class", "node")
+    .call(d3.drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended));
+
+  // Add circles
+  node.append("circle")
+    .attr("r", d => d.size * 3.5)
+    .attr("fill", d => {
+      if (d.group === 0) return "url(#node-gradient)";
+      return color(d.group);
+    });
+
+  // Add labels
+  node.append("text")
+    .attr("dy", ".35em")
+    .attr("text-anchor", "middle")
+    .text(d => d.id);
+
+  // Tooltip popup
+  node.on("click", function(event, d) {
+    const popup = document.getElementById("popup");
+    const title = document.getElementById("popup-title");
+    const content = document.getElementById("popup-content");
+
+    // Icon based on group
+    let icon = "🧩";
+    if (d.group === 0) icon = "🚀";
+    else if (d.group === 1) icon = "🌐";
+    else if (d.group === 2) icon = "🔎";
+    title.innerHTML = `<span class="icon">${icon}</span>${d.id}`;
+    content.textContent = descriptions[d.id] || "No description available.";
+    popup.style.display = "block";
+
+    // === ZOOM TO NODE ===
+    const k = 3; // Zoom scale factor (3x closer)
+    const x = d.x;
+    const y = d.y;
+
+    svg.transition()
+      .duration(800)
+      .call(zoom.transform, d3.zoomIdentity
+        .translate((svg.node().clientWidth / 2) / k - x, (svg.node().clientHeight / 2) / k - y)
+        .scale(k));
+  });
+
+  // Update positions
+  function ticked() {
+    link
+      .attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
+
+    node
+      .attr("transform", d => `translate(${d.x}, ${d.y})`);
+  }
+
+  // Drag behavior
+  function dragstarted(event, d) {
+    if (!event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+  }
+  function dragged(event, d) {
+    d.fx = event.x;
+    d.fy = event.y;
+  }
+  function dragended(event, d) {
+    if (!event.active) simulation.alphaTarget(0);
+    d.fx = null;
+    d.fy = null;
+  }
+
+  // Run simulation
+  simulation.on("tick", ticked);
+
+  // Popup close logic
+  document.querySelector(".close-btn").onclick = () => {
+    document.getElementById("popup").style.display = "none";
+  };
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.getElementById("popup").style.display = "none";
+    }
+  });
+
+  // === ENHANCED ZOOM ===
+  let zoom = d3.zoom()
+    .scaleExtent([0.3, 5]) // Allow deeper zoom (up to 5x)
+    .on("zoom", (event) => {
+      svg.selectAll('.nodes, .links').attr("transform", event.transform);
+    });
+
+  svg.call(zoom);
+
+  // Start with overview zoomed out slightly
+  svg.call(zoom.transform, d3.zoomIdentity.scale(0.7));
+
+  // Add Reset Zoom Button (optional but useful)
+  const resetBtn = document.createElement("button");
+  resetBtn.innerText = "🌍 Reset View";
+  resetBtn.style.position = "absolute";
+  resetBtn.style.top = "10px";
+  resetBtn.style.right = "10px";
+  resetBtn.style.padding = "8px 16px";
+  resetBtn.style.borderRadius = "8px";
+  resetBtn.style.border = "none";
+  resetBtn.style.background = "#512da8";
+  resetBtn.style.color = "white";
+  resetBtn.style.cursor = "pointer";
+  resetBtn.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
+  resetBtn.style.zIndex = "100";
+  resetBtn.onclick = () => {
+    svg.transition()
+      .duration(750)
+      .call(zoom.transform, d3.zoomIdentity.scale(0.7));
+  };
+
+  document.getElementById("graph").appendChild(resetBtn);
+
+  // Responsive SVG
+  window.addEventListener('resize', () => {
+    const graphDiv = document.getElementById('graph');
+    svg.attr('width', graphDiv.clientWidth).attr('height', graphDiv.clientHeight);
+  });
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit 2: Core Concepts</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+    .back-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateX(-5px);
+    }
+    h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #a18cd1, #fbc2eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .content {
+      max-width: 800px;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+    .content h2 {
+      margin: 2rem 0 1rem;
+      color: #81c784;
+    }
+    .content p {
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+    .coming-soon {
+      margin-top: 3rem;
+      font-size: 1.5rem;
+      color: #81c784;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html" class="back-btn">← Back to Dashboard</a>
+    <h1>⚙️ Unit 2: Core Concepts</h1>
+  </div>
+
+  <div class="content">
+    <h2>What You’ll Learn</h2>
+    <p>Dive into the essential building blocks. Master the theories and models that power advanced applications.</p>
+
+    <h2>Topics Covered</h2>
+    <p>• Foundational models and architectures<br>• Data flow and transformations<br>• Core algorithms and patterns<br>• Debugging and validation techniques</p>
+
+    <div class="coming-soon">✨ Content coming soon!</div>
+  </div>
+</body>
+</html>
