@@ -21,14 +21,12 @@
       --warning: #ffca28;
       --danger: #ef5350;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
     body {
       background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark), #1a103d);
       color: var(--text);
@@ -36,20 +34,17 @@
       overflow-x: hidden;
       background-attachment: fixed;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
     }
-
     header {
       text-align: center;
       padding: 4rem 0 3rem;
       position: relative;
       background: radial-gradient(circle at top, rgba(94, 53, 177, 0.1), transparent 60%);
     }
-
     h1 {
       font-size: 3.5rem;
       font-weight: 800;
@@ -61,7 +56,6 @@
       letter-spacing: -0.5px;
       text-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
-
     .subtitle {
       font-size: 1.3rem;
       opacity: 0.9;
@@ -69,7 +63,6 @@
       margin: 0 auto 2rem;
       line-height: 1.6;
     }
-
     .progress-bar-container {
       background: rgba(255,255,255,0.05);
       border-radius: 50px;
@@ -79,7 +72,6 @@
       width: 80%;
       max-width: 600px;
     }
-
     .progress-bar {
       height: 12px;
       background: rgba(255,255,255,0.1);
@@ -87,7 +79,6 @@
       overflow: hidden;
       box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
     }
-
     .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, #ff9a9e, #a18cd1, #66bb6a);
@@ -95,13 +86,11 @@
       border-radius: 50px;
       animation: pulse 2s infinite;
     }
-
     @keyframes pulse {
       0% { opacity: 0.8; }
       50% { opacity: 1; }
       100% { opacity: 0.8; }
     }
-
     .controls {
       display: flex;
       justify-content: center;
@@ -109,7 +98,6 @@
       margin-bottom: 3rem;
       flex-wrap: wrap;
     }
-
     .btn {
       padding: 0.85rem 2rem;
       border-radius: 50px;
@@ -123,36 +111,29 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       font-size: 1rem;
     }
-
     .btn-primary {
       background: linear-gradient(45deg, var(--primary), #7b4dff);
       color: white;
     }
-
     .btn-outline {
       background: transparent;
       border: 2px solid var(--primary-light);
       color: var(--primary-light);
     }
-
     .btn:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 12px 30px rgba(0,0,0,0.4);
     }
-
     .btn i {
       transition: transform 0.3s ease;
     }
-
     .btn:hover i {
       transform: rotate(5deg);
     }
-
     /* Accordion Styles */
     .accordion {
       margin: 3rem 0;
     }
-
     .accordion-item {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -163,12 +144,10 @@
       transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
       backdrop-filter: blur(10px);
     }
-
     .accordion-item:hover {
       transform: translateY(-3px);
       box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     }
-
     .accordion-header {
       padding: 1.75rem 2rem;
       display: flex;
@@ -181,24 +160,20 @@
       background: rgba(255,255,255,0.03);
       transition: background 0.3s ease;
     }
-
     .accordion-header:hover {
       background: rgba(255,255,255,0.07);
     }
-
     .accordion-header::after {
       content: '+';
       font-size: 1.8rem;
       transition: transform 0.4s ease, color 0.3s ease;
       color: var(--primary-light);
     }
-
     .accordion-item.active .accordion-header::after {
       content: '−';
       transform: rotate(90deg);
       color: var(--success);
     }
-
     .accordion-content {
       padding: 0 2rem;
       max-height: 0;
@@ -206,33 +181,27 @@
       transition: max-height 0.8s cubic-bezier(0.87, 0, 0.13, 1), padding 0.5s ease;
       background: rgba(0,0,0,0.1);
     }
-
     .accordion-item.active .accordion-content {
       padding: 0 2rem 2rem;
-      max-height: 2000px;
+      max-height: 3000px;
     }
-
     .accordion-content p {
       margin: 1.2rem 0;
       font-size: 1.05rem;
       line-height: 1.8;
     }
-
     .accordion-content strong {
       color: var(--primary-light);
     }
-
     .accordion-content ul, .accordion-content ol {
       padding-left: 2rem;
       margin: 1.5rem 0;
     }
-
     .accordion-content li {
       margin-bottom: 0.75rem;
       position: relative;
       padding-left: 1rem;
     }
-
     .accordion-content li::before {
       content: "•";
       color: var(--accent);
@@ -240,7 +209,6 @@
       position: absolute;
       left: 0;
     }
-
     /* Pro Tip Box */
     .pro-tip {
       background: rgba(102, 187, 106, 0.15);
@@ -252,13 +220,11 @@
       display: flex;
       gap: 1rem;
     }
-
     .pro-tip i {
       color: var(--success);
       font-size: 1.5rem;
       min-width: 24px;
     }
-
     /* Pitfall Warning */
     .pitfall {
       background: rgba(239, 83, 80, 0.15);
@@ -270,13 +236,11 @@
       display: flex;
       gap: 1rem;
     }
-
     .pitfall i {
       color: var(--danger);
       font-size: 1.5rem;
       min-width: 24px;
     }
-
     /* Why This Matters */
     .why-matters {
       background: rgba(255, 202, 40, 0.15);
@@ -288,13 +252,11 @@
       display: flex;
       gap: 1rem;
     }
-
     .why-matters i {
       color: var(--warning);
       font-size: 1.5rem;
       min-width: 24px;
     }
-
     /* Code Block */
     .code-block {
       background: #1e1e1e;
@@ -308,13 +270,11 @@
       position: relative;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
-
     .code-comment { color: #6a9955; font-style: italic; }
     .code-keyword { color: #569cd6; font-weight: bold; }
     .code-string { color: #ce9178; }
     .code-function { color: #dcdcaa; }
     .code-number { color: #b5cea8; }
-
     .code-label {
       position: absolute;
       top: 0.75rem;
@@ -326,14 +286,12 @@
       font-size: 0.8rem;
       font-weight: bold;
     }
-
     /* Diagrams */
     .diagram-container {
       display: flex;
       justify-content: center;
       margin: 2.5rem 0;
     }
-
     .diagram {
       background: rgba(0,0,0,0.2);
       padding: 2.5rem;
@@ -343,21 +301,18 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.3);
       border: 1px solid rgba(255,255,255,0.05);
     }
-
     .diagram-title {
       font-weight: 700;
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
       color: var(--primary-light);
     }
-
     .tensor-grid {
       display: grid;
       gap: 8px;
       margin: 1.5rem auto;
       justify-content: center;
     }
-
     .tensor-cell {
       width: 50px;
       height: 50px;
@@ -372,12 +327,10 @@
       color: #fff;
       transition: all 0.3s ease;
     }
-
     .tensor-cell:hover {
       transform: scale(1.1);
       background: rgba(100, 181, 246, 0.4);
     }
-
     /* Interactive Demo */
     .demo-container {
       background: var(--card-bg);
@@ -389,21 +342,18 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.25);
       backdrop-filter: blur(10px);
     }
-
     .demo-title {
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
       color: var(--primary-light);
     }
-
     .slider-container {
       margin: 2rem 0;
       max-width: 500px;
       margin-left: auto;
       margin-right: auto;
     }
-
     .slider-label {
       display: flex;
       justify-content: space-between;
@@ -411,7 +361,6 @@
       margin-bottom: 1rem;
       font-weight: 600;
     }
-
     .slider-value {
       font-weight: bold;
       color: var(--secondary);
@@ -419,7 +368,6 @@
       padding: 0.25rem 0.75rem;
       border-radius: 20px;
     }
-
     .slider {
       width: 100%;
       height: 8px;
@@ -430,7 +378,6 @@
       appearance: none;
       margin: 1rem 0;
     }
-
     .slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -442,11 +389,9 @@
       box-shadow: 0 0 10px rgba(255, 112, 67, 0.6);
       transition: transform 0.2s ease;
     }
-
     .slider::-webkit-slider-thumb:hover {
       transform: scale(1.2);
     }
-
     /* Tooltip */
     [data-tooltip] {
       position: relative;
@@ -456,11 +401,9 @@
       color: var(--primary-light);
       transition: all 0.3s ease;
     }
-
     [data-tooltip]:hover {
       color: #fff;
     }
-
     [data-tooltip]::before {
       content: attr(data-tooltip);
       position: absolute;
@@ -482,13 +425,11 @@
       z-index: 100;
       box-shadow: 0 5px 20px rgba(0,0,0,0.4);
     }
-
     [data-tooltip]:hover::before {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
     }
-
     /* Responsive */
     @media (max-width: 768px) {
       h1 { font-size: 2.5rem; }
@@ -498,7 +439,6 @@
       .tensor-cell { width: 40px; height: 40px; font-size: 0.8rem; }
       .code-block { padding: 1.5rem 1rem; }
     }
-
     footer {
       text-align: center;
       padding: 4rem 0 3rem;
@@ -508,7 +448,6 @@
       margin-top: 3rem;
       background: rgba(0,0,0,0.1);
     }
-
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -522,13 +461,11 @@
       border-radius: 50px;
       background: rgba(94, 53, 177, 0.1);
     }
-
     .back-btn:hover {
       gap: 1rem;
       background: rgba(94, 53, 177, 0.2);
       transform: translateX(-5px);
     }
-
     .section-tag {
       display: inline-block;
       background: linear-gradient(45deg, var(--primary), #7b4dff);
@@ -540,7 +477,6 @@
       margin: 1.5rem 0 1rem;
       box-shadow: 0 3px 10px rgba(94, 53, 177, 0.3);
     }
-
     .next-unit {
       margin-top: 2rem;
       padding: 1.5rem;
@@ -549,19 +485,53 @@
       text-align: center;
       border: 1px solid rgba(102, 187, 106, 0.3);
     }
-
     .next-unit h3 {
       color: var(--success);
       margin-bottom: 0.5rem;
     }
-
     .glow {
       animation: glow 1.5s infinite alternate;
     }
-
     @keyframes glow {
       from { box-shadow: 0 0 5px rgba(102, 187, 106, 0.5); }
       to { box-shadow: 0 0 20px rgba(102, 187, 106, 0.8); }
+    }
+    /* Deep Concept Box */
+    .deep-concept {
+      background: rgba(94, 53, 177, 0.15);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 0 10px 10px 0;
+      margin: 2rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .deep-concept i {
+      color: var(--primary);
+      font-size: 1.5rem;
+      min-width: 24px;
+      margin-top: 0.25rem;
+    }
+    .math-block {
+      background: rgba(38, 166, 154, 0.1);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      text-align: center;
+      border: 1px solid rgba(38, 166, 154, 0.3);
+    }
+    .math-block p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    .highlight {
+      background: rgba(255, 202, 40, 0.2);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -570,185 +540,285 @@
     <a href="index.html" class="back-btn">
       <i class="fas fa-arrow-left"></i> Back to Dashboard
     </a>
-
     <div class="progress-bar-container">
       <div class="progress-bar">
         <div class="progress-fill"></div>
       </div>
     </div>
-
     <header>
       <h1>Unit 1: Foundations of ML & TensorFlow</h1>
-      <p class="subtitle">Unlock the secrets of machine learning — from basic concepts to tensors, graphs, and optimizers. No jargon, just crystal-clear explanations with real-world analogies and interactive demos.</p>
-      
+      <p class="subtitle">Master the core theoretical concepts and practical implementation of machine learning with TensorFlow. This comprehensive guide covers everything from mathematical foundations to advanced optimization techniques, with deep conceptual explanations and real-world applications.</p>
       <div class="controls">
         <button class="btn btn-primary" onclick="exportNotes()">
-          <i class="fas fa-download"></i> Export Study Notes (PDF/TXT)
+          <i class="fas fa-download"></i> Export Comprehensive Study Notes (PDF/TXT)
         </button>
         <button class="btn btn-outline" onclick="resetPage()">
           <i class="fas fa-redo"></i> Reset & Start Fresh
         </button>
       </div>
     </header>
-
     <!-- Accordion 1: Introduction to ML -->
     <div class="accordion">
       <div class="accordion-item active">
-        <div class="accordion-header">🧠 1. What is Machine Learning? (And Why Should You Care?)</div>
+        <div class="accordion-header">🧠 1. What is Machine Learning? (Deep Conceptual Foundation)</div>
         <div class="accordion-content">
-          <p>Imagine teaching a child to recognize apples. You don’t give them a rigid rule like <em>“if it’s red and round, it’s an apple.”</em> Instead, you show them hundreds of pictures — some labeled “apple,” others “orange” or “ball.” Over time, they start noticing patterns: apples have stems, specific textures, certain shades of red or green.</p>
-          <p><strong>Machine Learning (ML)</strong> works the same way! Instead of programming explicit rules, we feed the computer tons of examples and let it <strong>learn patterns by itself</strong>.</p>
+          <p>Machine Learning represents a paradigm shift in computing — moving from explicit programming to <strong>statistical learning from data</strong>. At its core, ML is about constructing algorithms that can learn from and make predictions or decisions based on data, without being explicitly programmed for the specific task.</p>
           
-          <div class="section-tag">Where You See ML Every Day</div>
+          <div class="deep-concept">
+            <i class="fas fa-brain"></i>
+            <div>
+              <strong>Mathematical Foundation:</strong> Formally, ML seeks to find a function f: X → Y that maps inputs (X) to outputs (Y) by minimizing a loss function L(f(x), y) over a training dataset D = {(x₁, y₁), (x₂, y₂), ..., (xₙ, yₙ)}. The goal is to find the optimal parameters θ that minimize the expected loss over unseen data — this is known as the <span class="highlight">generalization problem</span>.
+            </div>
+          </div>
+          
+          <p>The learning process involves three key components:</p>
+          <ol>
+            <li><strong>Representation:</strong> How to represent the knowledge to be learned (the hypothesis space)</li>
+            <li><strong>Evaluation:</strong> How to evaluate candidate hypotheses (the loss/objective function)</li>
+            <li><strong>Optimization:</strong> How to search among candidate hypotheses for the best one (the learning algorithm)</li>
+          </ol>
+          
+          <div class="section-tag">Types of Machine Learning</div>
           <ul>
-            <li><strong>Netflix Recommendations:</strong> Learns your taste by analyzing what you watch and rate.</li>
-            <li><strong>Spam Filters:</strong> Learns to recognize spammy words and patterns from millions of emails.</li>
-            <li><strong>Voice Assistants (Siri/Alexa):</strong> Learns to map sounds to words and commands.</li>
-            <li><strong>Self-Driving Cars:</strong> Learns to recognize pedestrians, signs, and lanes from camera data.</li>
+            <li><strong>Supervised Learning:</strong> Learning from labeled examples (classification, regression). The algorithm learns to map inputs to known outputs.</li>
+            <li><strong>Unsupervised Learning:</strong> Finding hidden patterns in unlabeled data (clustering, dimensionality reduction, density estimation).</li>
+            <li><strong>Reinforcement Learning:</strong> Learning through trial and error by receiving rewards or penalties for actions in an environment.</li>
+            <li><strong>Semi-supervised & Self-supervised Learning:</strong> Leveraging both labeled and unlabeled data, or creating labels from the data itself.</li>
           </ul>
-
+          
+          <div class="math-block">
+            <p><strong>Empirical Risk Minimization:</strong></p>
+            <p>θ* = argmin<sub>θ</sub> (1/n) Σ<sub>i=1</sub><sup>n</sup> L(f(x<sub>i</sub>; θ), y<sub>i</sub>)</p>
+            <p>Where θ* represents the optimal parameters, L is the loss function, and n is the number of training examples.</p>
+          </div>
+          
           <div class="why-matters">
             <i class="fas fa-lightbulb"></i>
             <div>
-              <strong>Why This Matters:</strong> ML is eating the world. From healthcare to finance to entertainment — if there’s data, ML can find patterns in it. Understanding ML is like understanding electricity in the 20th century — it’s foundational.
+              <strong>Why This Matters:</strong> Understanding the mathematical foundation of ML is crucial for developing intuition about why algorithms work, diagnosing problems, and innovating new approaches. Without this foundation, ML becomes a black box of API calls.
             </div>
           </div>
-
+          
           <div class="pro-tip">
             <i class="fas fa-graduation-cap"></i>
             <div>
-              <strong>Pro Tip:</strong> Always start with the question: <em>“What pattern am I trying to learn from what data?”</em> That’s the core of every ML project.
+              <strong>Pro Tip:</strong> Always think in terms of the bias-variance tradeoff. A model with high bias oversimplifies reality (underfitting), while a model with high variance is overly sensitive to training data (overfitting). The art of ML is finding the right balance.
             </div>
           </div>
-
+          
           <div class="pitfall">
             <i class="fas fa-exclamation-triangle"></i>
             <div>
-              <strong>Common Pitfall:</strong> Thinking ML = magic. It’s not! Garbage in = garbage out. If your data is biased or messy, your model will be too.
+              <strong>Common Pitfall:</strong> Focusing only on training accuracy without considering generalization. A model that achieves 99% accuracy on training data but only 60% on test data is overfitting — it has memorized rather than learned.
             </div>
           </div>
         </div>
       </div>
-
       <!-- Accordion 2: TensorFlow Overview -->
       <div class="accordion-item">
-        <div class="accordion-header">⚙️ 2. TensorFlow: Your ML Workshop</div>
+        <div class="accordion-header">⚙️ 2. TensorFlow: Comprehensive Architecture & Ecosystem</div>
         <div class="accordion-content">
-          <p>Think of <strong>TensorFlow</strong> as a super-advanced workshop for building machine learning models. Created by Google, it’s one of the most popular tools in the world for ML — especially for deep learning (neural networks).</p>
-          <p>You don’t build models with hammers and nails here — you use tensors, layers, optimizers, and graphs!</p>
+          <p>TensorFlow is not just a library — it's a comprehensive ecosystem for building, training, and deploying machine learning models at scale. Developed by the Google Brain team, it has become the de facto standard for production ML systems, powering everything from Google Search to medical diagnostics.</p>
           
-          <div class="section-tag">The 3-Step ML Lifecycle</div>
-          <ol>
-            <li><strong>🏗️ Build:</strong> Design your model’s architecture — like drawing blueprints for a house. How many layers? What kind of neurons?</li>
-            <li><strong>🏋️ Train:</strong> Feed it data and let it learn. The model adjusts its internal knobs (weights) to get better over time.</li>
-            <li><strong>🚀 Deploy:</strong> Put your trained model into an app, website, or robot so it can make real-time predictions!</li>
-          </ol>
-
-          <div class="code-block">
-            <div class="code-label">Building a Simple Model</div>
-            <span class="code-comment"># Import TensorFlow</span><br>
-            <span class="code-keyword">import</span> tensorflow <span class="code-keyword">as</span> tf<br><br>
-            
-            <span class="code-comment"># Create a sequential model (layers in a line)</span><br>
-            model = tf.keras.Sequential([<br>
-            &nbsp;&nbsp;<span class="code-comment"># Hidden layer: 128 neurons, ReLU activation</span><br>
-            &nbsp;&nbsp;tf.keras.layers.Dense(<span class="code-number">128</span>, activation=<span class="code-string">'relu'</span>),<br>
-            &nbsp;&nbsp;<span class="code-comment"># Output layer: 10 neurons (e.g., digits 0-9), softmax for probabilities</span><br>
-            &nbsp;&nbsp;tf.keras.layers.Dense(<span class="code-number">10</span>, activation=<span class="code-string">'softmax'</span>)<br>
-            ])
+          <div class="deep-concept">
+            <i class="fas fa-cogs"></i>
+            <div>
+              <strong>Architectural Philosophy:</strong> TensorFlow is designed around the concept of dataflow programming, where computations are represented as graphs and data flows through them as tensors. This architecture enables automatic differentiation, distributed computing, and deployment across diverse hardware platforms (CPUs, GPUs, TPUs, mobile devices).
+            </div>
           </div>
-
+          
+          <div class="section-tag">TensorFlow Architecture Components</div>
+          <ul>
+            <li><strong>TensorFlow Core:</strong> The foundational library with low-level operations for tensor manipulation and automatic differentiation.</li>
+            <li><strong>tf.keras:</strong> High-level API for building and training deep learning models. Now the recommended interface for most TensorFlow applications.</li>
+            <li><strong>TensorFlow Extended (TFX):</strong> End-to-end platform for deploying production ML pipelines.</li>
+            <li><strong>TensorFlow Lite:</strong> Lightweight solution for mobile and embedded devices.</li>
+            <li><strong>TensorFlow.js:</strong> JavaScript library for ML in the browser and Node.js.</li>
+            <li><strong>TensorFlow Hub:</strong> Repository of pre-trained models for transfer learning.</li>
+          </ul>
+          
+          <div class="code-block">
+            <div class="code-label">Comprehensive Model Building with TensorFlow</div>
+            <span class="code-comment"># Import required modules</span><br>
+            <span class="code-keyword">import</span> tensorflow <span class="code-keyword">as</span> tf<br>
+            <span class="code-keyword">from</span> tensorflow.keras <span class="code-keyword">import</span> layers, models, optimizers, losses, metrics<br><br>
+            <span class="code-comment"># Define a more sophisticated model architecture</span><br>
+            model = models.Sequential([<br>
+            &nbsp;&nbsp;<span class="code-comment"># Input layer with explicit input shape</span><br>
+            &nbsp;&nbsp;layers.Dense(<span class="code-number">512</span>, activation=<span class="code-string">'relu'</span>, input_shape=(<span class="code-number">784</span>,), name=<span class="code-string">'hidden_layer_1'</span>),<br>
+            &nbsp;&nbsp;layers.Dropout(<span class="code-number">0.3</span>), <span class="code-comment"># Regularization to prevent overfitting</span><br>
+            &nbsp;&nbsp;layers.Dense(<span class="code-number">256</span>, activation=<span class="code-string">'relu'</span>, name=<span class="code-string">'hidden_layer_2'</span>),<br>
+            &nbsp;&nbsp;layers.BatchNormalization(), <span class="code-comment"># Stabilize training</span><br>
+            &nbsp;&nbsp;layers.Dense(<span class="code-number">128</span>, activation=<span class="code-string">'relu'</span>, name=<span class="code-string">'hidden_layer_3'</span>),<br>
+            &nbsp;&nbsp;layers.Dense(<span class="code-number">10</span>, activation=<span class="code-string">'softmax'</span>, name=<span class="code-string">'output_layer'</span>)<br>
+            ])<br><br>
+            <span class="code-comment"># Compile with specific optimizer, loss, and metrics</span><br>
+            model.compile(<br>
+            &nbsp;&nbsp;optimizer=optimizers.Adam(learning_rate=<span class="code-number">0.001</span>),<br>
+            &nbsp;&nbsp;loss=losses.SparseCategoricalCrossentropy(),<br>
+            &nbsp;&nbsp;metrics=[metrics.SparseCategoricalAccuracy()]<br>
+            )
+          </div>
+          
+          <div class="section-tag">The Complete ML Workflow in TensorFlow</div>
+          <ol>
+            <li><strong>Data Pipeline:</strong> Use tf.data for efficient data loading, preprocessing, and augmentation.</li>
+            <li><strong>Model Definition:</strong> Create architecture using Keras Sequential or Functional API, or custom models with tf.Module.</li>
+            <li><strong>Compilation:</strong> Specify optimizer, loss function, and metrics for evaluation.</li>
+            <li><strong>Training:</strong> Fit model to data using model.fit(), with options for validation, callbacks, and epochs.</li>
+            <li><strong>Evaluation:</strong> Assess performance on test data using model.evaluate().</li>
+            <li><strong>Prediction:</strong> Generate predictions on new data using model.predict().</li>
+            <li><strong>Serialization:</strong> Save and load models using model.save() and tf.keras.models.load_model().</li>
+            <li><strong>Deployment:</strong> Export for production using TensorFlow Serving, Lite, or JS.</li>
+          </ol>
+          
           <div class="pro-tip">
             <i class="fas fa-graduation-cap"></i>
             <div>
-              <strong>Pro Tip:</strong> Use <code>tf.keras</code> — it’s the high-level, user-friendly API built into TensorFlow. Perfect for beginners and pros alike.
+              <strong>Pro Tip:</strong> Use the Functional API for complex architectures with multiple inputs/outputs or shared layers. Use tf.data for production pipelines — it's optimized for performance and can handle datasets larger than memory.
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Accordion 3: Tensors -->
-      <div class="accordion-item">
-        <div class="accordion-header">🔢 3. Tensors: The DNA of TensorFlow</div>
-        <div class="accordion-content">
-          <p>If TensorFlow is a workshop, then <strong>tensors</strong> are the raw materials — wood, steel, wires. Everything in TensorFlow is a tensor: your data, your model’s weights, even the results.</p>
-          <p>A tensor is just a <strong>multi-dimensional array</strong>. Don’t panic! Let’s break it down with shapes you already know:</p>
           
-          <div class="diagram-container">
-            <div class="diagram">
-              <div class="diagram-title">Tensor Ranks (Dimensions)</div>
-              
-              <div>Scalar (Rank 0) — Single Number</div>
-              <div style="font-size: 2.5rem; margin: 1rem 0; font-weight: bold;">7</div>
-              
-              <div>Vector (Rank 1) — List</div>
-              <div class="tensor-grid" style="grid-template-columns: repeat(4, 50px); margin: 1rem auto;">
-                <div class="tensor-cell">2</div>
-                <div class="tensor-cell">5</div>
-                <div class="tensor-cell">9</div>
-                <div class="tensor-cell">1</div>
-              </div>
-              
-              <div>Matrix (Rank 2) — Table/Grid</div>
-              <div class="tensor-grid" style="grid-template-columns: repeat(3, 50px); margin: 1.5rem auto;">
-                <div class="tensor-cell">1</div>
-                <div class="tensor-cell">0</div>
-                <div class="tensor-cell">1</div>
-                <div class="tensor-cell">1</div>
-                <div class="tensor-cell">1</div>
-                <div class="tensor-cell">0</div>
-              </div>
-              
-              <div style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                Rank 3+? Think of a stack of matrices (like video frames) or a cube of numbers!
-              </div>
-            </div>
-          </div>
-
-          <div class="section-tag">Tensor Properties</div>
-          <ul>
-            <li><strong>Rank:</strong> Number of dimensions. Scalar=0, Vector=1, Matrix=2, etc.</li>
-            <li><strong>Shape:</strong> Size of each dimension. E.g., a 32x32 RGB image = [32, 32, 3]</li>
-            <li><strong>dtype:</strong> Data type — usually <code>tf.float32</code> for decimals or <code>tf.int32</code> for whole numbers.</li>
-          </ul>
-
           <div class="why-matters">
             <i class="fas fa-lightbulb"></i>
             <div>
-              <strong>Why This Matters:</strong> If you don’t understand tensors, you’ll be lost in TensorFlow. They’re the universal currency — data flows as tensors, computations happen on tensors.
+              <strong>Why This Matters:</strong> TensorFlow's comprehensive ecosystem means you can develop models from research prototype to production deployment without switching frameworks. Understanding the full architecture helps you leverage its capabilities effectively.
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Accordion 4: Computation Graph -->
+      <!-- Accordion 3: Tensors -->
       <div class="accordion-item">
-        <div class="accordion-header">📊 4. Computation Graph: The Secret Sauce</div>
+        <div class="accordion-header">🔢 3. Tensors: Mathematical Foundations & Practical Implementation</div>
         <div class="accordion-content">
-          <p>Here’s where TensorFlow gets really smart. Instead of calculating things step-by-step like a calculator, it builds a <strong>computation graph</strong> — a map of all operations and how data flows between them.</p>
-          <p>Why? So it can do two magical things:
-            <ol>
-              <li><strong>Run efficiently</strong> on GPUs/TPUs (specialized hardware)</li>
-              <li><strong>Automatically calculate gradients</strong> for learning (backpropagation)</li>
-            </ol>
-          </p>
+          <p>Tensors are the fundamental data structure in TensorFlow and the mathematical foundation of modern machine learning. In mathematics, a tensor is a multi-linear function that maps vectors to scalars, but in ML, we use the term to refer to multi-dimensional arrays that generalize scalars, vectors, and matrices.</p>
+          
+          <div class="deep-concept">
+            <i class="fas fa-cube"></i>
+            <div>
+              <strong>Mathematical Perspective:</strong> A tensor of order n is an n-dimensional array of numbers that transforms according to specific rules under coordinate transformations. In ML, we primarily work with Cartesian tensors in Euclidean space, where the transformation rules are less critical than the multi-dimensional structure.
+            </div>
+          </div>
           
           <div class="diagram-container">
             <div class="diagram">
-              <div class="diagram-title">Simple Computation Graph</div>
-              <svg width="400" height="120" style="background: transparent; margin: 1rem auto;">
-                <rect x="20" y="40" width="70" height="35" fill="#5e35b1" rx="8" />
-                <text x="55" y="63" fill="white" font-size="12" text-anchor="middle">Input Data</text>
-                
-                <rect x="130" y="40" width="70" height="35" fill="#26a69a" rx="8" />
-                <text x="165" y="63" fill="white" font-size="12" text-anchor="middle">Matrix Multiply</text>
-                
-                <rect x="240" y="40" width="70" height="35" fill="#ff7043" rx="8" />
-                <text x="275" y="63" fill="white" font-size="12" text-anchor="middle">ReLU</text>
-                
-                <line x1="90" y1="57" x2="130" y2="57" stroke="white" stroke-width="2.5" marker-end="url(#arrow)" />
-                <line x1="200" y1="57" x2="240" y2="57" stroke="white" stroke-width="2.5" marker-end="url(#arrow)" />
-                
+              <div class="diagram-title">Tensor Hierarchy and Mathematical Properties</div>
+              <div>Scalar (Order 0 Tensor) — Single Value</div>
+              <div style="font-size: 2.5rem; margin: 1rem 0; font-weight: bold;">α ∈ ℝ</div>
+              <div>Vector (Order 1 Tensor) — 1D Array</div>
+              <div class="tensor-grid" style="grid-template-columns: repeat(4, 50px); margin: 1rem auto;">
+                <div class="tensor-cell">x₁</div>
+                <div class="tensor-cell">x₂</div>
+                <div class="tensor-cell">x₃</div>
+                <div class="tensor-cell">x₄</div>
+              </div>
+              <div>Matrix (Order 2 Tensor) — 2D Array</div>
+              <div class="tensor-grid" style="grid-template-columns: repeat(3, 50px); margin: 1.5rem auto;">
+                <div class="tensor-cell">a₁₁</div>
+                <div class="tensor-cell">a₁₂</div>
+                <div class="tensor-cell">a₁₃</div>
+                <div class="tensor-cell">a₂₁</div>
+                <div class="tensor-cell">a₂₂</div>
+                <div class="tensor-cell">a₂₃</div>
+              </div>
+              <div>Order 3+ Tensor — Multi-dimensional Array</div>
+              <div style="margin: 1.5rem auto; font-size: 1.2rem;">T ∈ ℝ<sup>d₁×d₂×...×dₙ</sup></div>
+            </div>
+          </div>
+          
+          <div class="section-tag">Tensor Operations and Properties</div>
+          <ul>
+            <li><strong>Rank (Order):</strong> Number of dimensions (axes). A color image has rank 3: [height, width, channels].</li>
+            <li><strong>Shape:</strong> The size of each dimension. For a batch of 32 RGB images of size 224×224: shape = (32, 224, 224, 3).</li>
+            <li><strong>Reshaping:</strong> Changing tensor dimensions without altering data (e.g., flattening images for dense layers).</li>
+            <li><strong>Broadcasting:</strong> Automatic expansion of tensors for element-wise operations with compatible shapes.</li>
+            <li><strong>Reduction Operations:</strong> Sum, mean, max along specified axes (e.g., global average pooling).</li>
+            <li><strong>Element-wise Operations:</strong> Addition, multiplication, activation functions applied to each element.</li>
+            <li><strong>Linear Algebra Operations:</strong> Matrix multiplication, transpose, inverse, eigenvalue decomposition.</li>
+          </ul>
+          
+          <div class="code-block">
+            <div class="code-label">Advanced Tensor Manipulation in TensorFlow</div>
+            <span class="code-comment"># Create tensors with specific properties</span><br>
+            <span class="code-keyword">import</span> tensorflow <span class="code-keyword">as</span> tf<br><br>
+            <span class="code-comment"># Different ways to create tensors</span><br>
+            scalar = tf.constant(<span class="code-number">3.14</span>)<br>
+            vector = tf.constant([<span class="code-number">1</span>, <span class="code-number">2</span>, <span class="code-number">3</span>, <span class="code-number">4</span>])<br>
+            matrix = tf.constant([[<span class="code-number">1</span>, <span class="code-number">2</span>], [<span class="code-number">3</span>, <span class="code-number">4</span>]])<br>
+            random_tensor = tf.random.normal([<span class="code-number">100</span>, <span class="code-number">784</span>]) <span class="code-comment"># Gaussian distribution</span><br>
+            ones_tensor = tf.ones([<span class="code-number">32</span>, <span class="code-number">10</span>])<br>
+            zeros_tensor = tf.zeros([<span class="code-number">32</span>, <span class="code-number">10</span>])<br><br>
+            <span class="code-comment"># Tensor properties and operations</span><br>
+            print(<span class="code-string">"Rank:"</span>, tf.rank(matrix)) <span class="code-comment"># Output: 2</span><br>
+            print(<span class="code-string">"Shape:"</span>, tf.shape(matrix)) <span class="code-comment"># Output: [2 2]</span><br>
+            print(<span class="code-string">"Data type:"</span>, matrix.dtype) <span class="code-comment"># Output: tf.int32</span><br><br>
+            <span class="code-comment"># Advanced operations</span><br>
+            reshaped = tf.reshape(vector, [<span class="code-number">2</span>, <span class="code-number">2</span>]) <span class="code-comment"># Reshape 1D to 2D</span><br>
+            transposed = tf.transpose(matrix) <span class="code-comment"># Matrix transpose</span><br>
+            multiplied = tf.matmul(matrix, transposed) <span class="code-comment"># Matrix multiplication</span><br>
+            reduced = tf.reduce_sum(matrix, axis=<span class="code-number">1</span>) <span class="code-comment"># Sum along axis 1</span><br>
+            broadcasted = matrix + tf.constant([<span class="code-number">10</span>, <span class="code-number">20</span>]) <span class="code-comment"># Broadcasting addition</span>
+          </div>
+          
+          <div class="math-block">
+            <p><strong>Tensor Broadcasting Rules:</strong></p>
+            <p>When operating on two tensors, TensorFlow compares their shapes element-wise from right to left.</p>
+            <p>Two dimensions are compatible when:</p>
+            <p>1. They are equal, or</p>
+            <p>2. One of them is 1</p>
+            <p>If shapes are incompatible, an exception is raised.</p>
+          </div>
+          
+          <div class="why-matters">
+            <i class="fas fa-lightbulb"></i>
+            <div>
+              <strong>Why This Matters:</strong> Mastery of tensor operations is essential for implementing custom layers, loss functions, and data preprocessing pipelines. Understanding broadcasting and reduction operations can significantly simplify your code and improve performance.
+            </div>
+          </div>
+          
+          <div class="pitfall">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <strong>Common Pitfall:</strong> Confusing tf.reshape() with tf.transpose(). Reshape changes the dimensions but preserves the order of elements in memory, while transpose reorders elements according to the new axis arrangement.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion 4: Computation Graph -->
+      <div class="accordion-item">
+        <div class="accordion-header">📊 4. Computation Graph: The Engine of Automatic Differentiation</div>
+        <div class="accordion-content">
+          <p>The computation graph is TensorFlow's secret weapon — a directed acyclic graph (DAG) that represents the mathematical operations of your model and the dependencies between them. This graph-based approach enables automatic differentiation, distributed execution, and optimization for various hardware platforms.</p>
+          
+          <div class="deep-concept">
+            <i class="fas fa-project-diagram"></i>
+            <div>
+              <strong>Mathematical Foundation:</strong> The computation graph represents a composite function f(x) = fₙ(⋯f₂(f₁(x))⋯). Automatic differentiation applies the chain rule systematically through this graph to compute gradients. For a function with multiple inputs and outputs, this becomes ∂yᵢ/∂xⱼ = Σₖ (∂yᵢ/∂zₖ)(∂zₖ/∂xⱼ), where zₖ are intermediate variables.
+            </div>
+          </div>
+          
+          <div class="diagram-container">
+            <div class="diagram">
+              <div class="diagram-title">Computation Graph with Gradient Flow</div>
+              <svg width="500" height="200" style="background: transparent; margin: 1rem auto;">
+                <rect x="20" y="80" width="80" height="40" fill="#5e35b1" rx="8" />
+                <text x="60" y="105" fill="white" font-size="12" text-anchor="middle">Input x</text>
+                <rect x="130" y="40" width="80" height="40" fill="#26a69a" rx="8" />
+                <text x="170" y="65" fill="white" font-size="12" text-anchor="middle">W₁x + b₁</text>
+                <rect x="130" y="120" width="80" height="40" fill="#26a69a" rx="8" />
+                <text x="170" y="145" fill="white" font-size="12" text-anchor="middle">ReLU</text>
+                <rect x="240" y="80" width="80" height="40" fill="#ff7043" rx="8" />
+                <text x="280" y="105" fill="white" font-size="12" text-anchor="middle">W₂h + b₂</text>
+                <rect x="350" y="80" width="80" height="40" fill="#66bb6a" rx="8" />
+                <text x="390" y="105" fill="white" font-size="12" text-anchor="middle">Softmax</text>
+                <line x1="100" y1="100" x2="130" y2="60" stroke="white" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="100" y1="100" x2="130" y2="140" stroke="white" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="210" y1="60" x2="240" y2="100" stroke="white" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="210" y1="140" x2="240" y2="100" stroke="white" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="320" y1="100" x2="350" y2="100" stroke="white" stroke-width="2" marker-end="url(#arrow)" />
+                <text x="170" y="30" fill="#ffca28" font-size="10" text-anchor="middle">∇L/∇W₁</text>
+                <text x="280" y="70" fill="#ffca28" font-size="10" text-anchor="middle">∇L/∇W₂</text>
+                <text x="390" y="70" fill="#ffca28" font-size="10" text-anchor="middle">∇L</text>
                 <defs>
                   <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
                     <path d="M0,0 L0,6 L9,3 z" fill="white" />
@@ -756,66 +826,173 @@
                 </defs>
               </svg>
               <div style="font-size: 0.9rem; margin-top: 1rem;">
-                Data flows from left to right. Each box is an operation. Arrows are tensors.
+                Forward pass (solid lines) computes outputs. Backward pass (yellow annotations) computes gradients via chain rule.
               </div>
             </div>
           </div>
-
+          
+          <div class="section-tag">Graph Execution Modes</div>
+          <ul>
+            <li><strong>Eager Execution (Default):</strong> Operations are executed immediately as they're called, returning concrete values. This is intuitive for debugging and development.</li>
+            <li><strong>Graph Execution:</strong> Operations are added to a graph and executed later in a session. This enables optimizations and is better for production deployment.</li>
+            <li><strong>AutoGraph:</strong> TensorFlow's feature that automatically converts Python control flow to graph operations, allowing you to write natural Python code that runs efficiently in graph mode.</li>
+          </ul>
+          
+          <div class="code-block">
+            <div class="code-label">Working with Computation Graphs</div>
+            <span class="code-comment"># Eager execution (default in TF 2.x)</span><br>
+            a = tf.constant(<span class="code-number">3.0</span>)<br>
+            b = tf.constant(<span class="code-number">4.0</span>)<br>
+            c = a * b <span class="code-comment"># Executed immediately, c is 12.0</span><br>
+            print(c) <span class="code-comment"># Output: tf.Tensor(12.0, shape=(), dtype=float32)</span><br><br>
+            <span class="code-comment"># Creating a graph function with tf.function</span><br>
+            @tf.function<br>
+            <span class="code-keyword">def</span> <span class="code-function">compute_area</span>(radius):<br>
+            &nbsp;&nbsp;pi = tf.constant(<span class="code-number">3.14159</span>)<br>
+            &nbsp;&nbsp;<span class="code-keyword">return</span> pi * radius * radius<br><br>
+            <span class="code-comment"># The function is now compiled to a graph</span><br>
+            area = compute_area(tf.constant(<span class="code-number">5.0</span>))<br>
+            print(area) <span class="code-comment"># Output: tf.Tensor(78.53975, shape=(), dtype=float32)</span><br><br>
+            <span class="code-comment"># Inspecting the graph</span><br>
+            print(compute_area.get_concrete_function(tf.constant(<span class="code-number">5.0</span>)).graph.as_graph_def())
+          </div>
+          
+          <div class="math-block">
+            <p><strong>The Chain Rule in Backpropagation:</strong></p>
+            <p>For a composite function y = f(g(x)), the derivative is:</p>
+            <p>dy/dx = (dy/dg) × (dg/dx)</p>
+            <p>For neural networks with multiple layers, this extends to:</p>
+            <p>∂L/∂Wᵢ = (∂L/∂aₙ) × (∂aₙ/∂zₙ) × (∂zₙ/∂aₙ₋₁) × ⋯ × (∂zᵢ₊₁/∂aᵢ) × (∂aᵢ/∂zᵢ) × (∂zᵢ/∂Wᵢ)</p>
+            <p>Where L is loss, a is activation, z is weighted sum, and W is weights.</p>
+          </div>
+          
           <div class="pro-tip">
             <i class="fas fa-graduation-cap"></i>
             <div>
-              <strong>Pro Tip:</strong> In modern TensorFlow (eager execution), graphs are built automatically behind the scenes. You write normal Python code, and TensorFlow handles the graph magic!
+              <strong>Pro Tip:</strong> Use @tf.function to decorate performance-critical functions. TensorFlow will compile them to graphs, providing significant speedups. However, avoid decorating functions with side effects or complex Python control flow that can't be converted.
             </div>
           </div>
-
+          
           <div class="why-matters">
             <i class="fas fa-lightbulb"></i>
             <div>
-              <strong>Why This Matters:</strong> The graph is what makes deep learning possible. Without it, calculating gradients through 100+ layers would be a nightmare. TensorFlow does it automatically!
+              <strong>Why This Matters:</strong> The computation graph and automatic differentiation are what make deep learning feasible. Without them, computing gradients through hundreds of layers would be computationally infeasible. Understanding this helps you debug training issues and optimize performance.
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Accordion 5: Variables & Operations -->
-      <div class="accordion-item">
-        <div class="accordion-header">🧮 5. Variables vs Constants: What’s Learnable?</div>
-        <div class="accordion-content">
-          <p>Not all numbers in your model are created equal. Some are fixed (constants), others change as the model learns (variables).</p>
           
-          <div class="code-block">
-            <div class="code-label">Variables Hold Learnable Parameters</div>
-            <span class="code-comment"># Fixed values — won't change during training</span><br>
-            constant_tensor = tf.constant([[<span class="code-number">1.0</span>, <span class="code-number">2.0</span>], [<span class="code-number">3.0</span>, <span class="code-number">4.0</span>]])<br><br>
-            
-            <span class="code-comment"># Variables — these WILL be updated during training!</span><br>
-            weights = tf.Variable(tf.random.normal([<span class="code-number">784</span>, <span class="code-number">10</span>])) <span class="code-comment"># 784 inputs → 10 outputs</span><br>
-            bias = tf.Variable(tf.zeros([<span class="code-number">10</span>]))<br><br>
-            
-            <span class="code-comment"># Operations combine them</span><br>
-            result = tf.add(a, b) <span class="code-comment"># Element-wise addition</span><br>
-            logits = tf.matmul(input, weights) + bias <span class="code-comment"># Classic: y = Wx + b</span>
-          </div>
-          
-          <p><strong>Variables</strong> are like the knobs on a radio — as you train, TensorFlow turns them to get the best signal (lowest error). <strong>Constants</strong> are like the radio’s casing — fixed and unchanging.</p>
-
           <div class="pitfall">
             <i class="fas fa-exclamation-triangle"></i>
             <div>
-              <strong>Common Pitfall:</strong> Forgetting to initialize variables or accidentally making something a constant when it should be a variable. Your model won’t learn!
+              <strong>Common Pitfall:</strong> Creating new tf.Variable objects inside a @tf.function. Variables should be created outside and passed in, as tf.function traces the computation graph once and reuses it.
             </div>
           </div>
         </div>
       </div>
-
+      <!-- Accordion 5: Variables & Operations -->
+      <div class="accordion-item">
+        <div class="accordion-header">🧮 5. Variables, Constants, and Automatic Differentiation</div>
+        <div class="accordion-content">
+          <p>In TensorFlow, the distinction between variables and constants is fundamental to the learning process. Variables represent the learnable parameters of your model — the weights and biases that are adjusted during training to minimize the loss function. Constants represent fixed values that don't change during training.</p>
+          
+          <div class="deep-concept">
+            <i class="fas fa-balance-scale"></i>
+            <div>
+              <strong>Mathematical Foundation:</strong> In optimization terms, variables are the parameters θ that we're trying to find: θ* = argmin<sub>θ</sub> L(f(x; θ), y). The gradient ∇<sub>θ</sub>L tells us the direction of steepest ascent, so we update parameters in the opposite direction: θ ← θ - η∇<sub>θ</sub>L, where η is the learning rate.
+            </div>
+          </div>
+          
+          <div class="section-tag">TensorFlow Variable System</div>
+          <ul>
+            <li><strong>tf.Variable:</strong> Represents mutable tensor values that persist across multiple calls to tf.function. These are your model parameters.</li>
+            <li><strong>tf.constant:</strong> Represents immutable tensor values. These are fixed data or hyperparameters.</li>
+            <li><strong>tf.Tensor:</strong> Represents the output of operations. These are typically intermediate values in computations.</li>
+            <li><strong>Watched Variables:</strong> Only variables (and tensors explicitly watched with tf.GradientTape.watch()) are tracked for gradient computation.</li>
+          </ul>
+          
+          <div class="code-block">
+            <div class="code-label">Variables, Gradients, and Training Loop</div>
+            <span class="code-comment"># Define model parameters as variables</span><br>
+            W = tf.Variable(tf.random.normal([<span class="code-number">784</span>, <span class="code-number">10</span>], stddev=<span class="code-number">0.1</span>))<br>
+            b = tf.Variable(tf.zeros([<span class="code-number">10</span>]))<br><br>
+            <span class="code-comment"># Define a simple linear model</span><br>
+            <span class="code-keyword">def</span> <span class="code-function">model</span>(x):<br>
+            &nbsp;&nbsp;<span class="code-keyword">return</span> tf.matmul(x, W) + b<br><br>
+            <span class="code-comment"># Define loss function</span><br>
+            <span class="code-keyword">def</span> <span class="code-function">loss</span>(y_true, y_pred):<br>
+            &nbsp;&nbsp;<span class="code-keyword">return</span> tf.reduce_mean(tf.keras.losses.sparse_categorical_crossentropy(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;y_true, y_pred, from_logits=<span class="code-keyword">True</span>))<br><br>
+            <span class="code-comment"># Training step using GradientTape</span><br>
+            optimizer = tf.keras.optimizers.Adam(learning_rate=<span class="code-number">0.001</span>)<br><br>
+            @tf.function<br>
+            <span class="code-keyword">def</span> <span class="code-function">train_step</span>(x, y):<br>
+            &nbsp;&nbsp;<span class="code-keyword">with</span> tf.GradientTape() <span class="code-keyword">as</span> tape:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;logits = model(x)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;loss_value = loss(y, logits)<br>
+            &nbsp;&nbsp;gradients = tape.gradient(loss_value, [W, b])<br>
+            &nbsp;&nbsp;optimizer.apply_gradients(zip(gradients, [W, b]))<br>
+            &nbsp;&nbsp;<span class="code-keyword">return</span> loss_value<br><br>
+            <span class="code-comment"># Execute training</span><br>
+            <span class="code-keyword">for</span> epoch <span class="code-keyword">in</span> range(<span class="code-number">10</span>):<br>
+            &nbsp;&nbsp;epoch_loss = train_step(x_batch, y_batch)<br>
+            &nbsp;&nbsp;print(<span class="code-string">f"Epoch </span>{epoch+<span class="code-number">1</span>}<span class="code-string">, Loss: </span>{epoch_loss}<span class="code-string">"</span>)
+          </div>
+          
+          <div class="section-tag">Advanced Variable Management</div>
+          <ul>
+            <li><strong>Variable Initialization:</strong> Proper initialization (Xavier/Glorot, He) is crucial for training deep networks. Poor initialization can lead to vanishing/exploding gradients.</li>
+            <li><strong>Variable Scope:</strong> Organize variables into logical groups using tf.name_scope or tf.variable_scope (in TF 1.x).</li>
+            <li><strong>Variable Constraints:</strong> Apply constraints to variables (e.g., non-negativity, unit norm) using the constraint parameter.</li>
+            <li><strong>Variable Regularization:</strong> Add L1/L2 regularization to variables to prevent overfitting.</li>
+            <li><strong>Variable Checkpointing:</strong> Save and restore variables for model persistence and transfer learning.</li>
+          </ul>
+          
+          <div class="math-block">
+            <p><strong>Gradient Descent Update Rule:</strong></p>
+            <p>θ<sub>t+1</sub> = θ<sub>t</sub> - η∇<sub>θ</sub>L(θ<sub>t</sub>)</p>
+            <p>Where:</p>
+            <p>• θ represents model parameters (variables)</p>
+            <p>• η is the learning rate (step size)</p>
+            <p>• ∇<sub>θ</sub>L is the gradient of loss with respect to parameters</p>
+            <p>• t is the iteration/step number</p>
+          </div>
+          
+          <div class="pro-tip">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Pro Tip:</strong> Use tf.keras.layers and tf.keras.models whenever possible — they handle variable creation, initialization, and management automatically. Only create raw tf.Variable objects when implementing custom layers or research algorithms.
+            </div>
+          </div>
+          
+          <div class="pitfall">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <strong>Common Pitfall:</strong> Forgetting to include variables in the gradient computation. Variables created inside a tf.GradientTape context are automatically watched, but tensors are not. Use tape.watch(tensor) to track gradients for specific tensors.
+            </div>
+          </div>
+          
+          <div class="why-matters">
+            <i class="fas fa-lightbulb"></i>
+            <div>
+              <strong>Why This Matters:</strong> Understanding how variables and gradients work is essential for debugging training issues, implementing custom training loops, and developing novel optimization algorithms. It's the difference between using ML as a black box and truly understanding the learning process.
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Accordion 6: Optimizers -->
       <div class="accordion-item">
-        <div class="accordion-header">⛰️ 6. Optimizers: Finding the Valley</div>
+        <div class="accordion-header">⛰️ 6. Optimization Algorithms: Mathematics of Learning</div>
         <div class="accordion-content">
-          <p>Training a model is like hiking down a foggy mountain in the dark, trying to find the lowest valley (minimum loss). <strong>Optimizers</strong> are your GPS and legs — they tell you which direction to go and how big a step to take.</p>
+          <p>Optimization algorithms are the engines that drive machine learning — they determine how model parameters are updated to minimize the loss function. While gradient descent is the foundation, modern optimizers incorporate momentum, adaptive learning rates, and other techniques to navigate complex loss landscapes more efficiently.</p>
+          
+          <div class="deep-concept">
+            <i class="fas fa-mountain"></i>
+            <div>
+              <strong>Mathematical Foundation:</strong> Optimization in ML is about finding the minimum of a high-dimensional, non-convex function. The challenge is that we only have access to stochastic gradients (computed on mini-batches) rather than true gradients. Modern optimizers address issues like ill-conditioning, saddle points, and varying curvature across dimensions.
+            </div>
+          </div>
           
           <div class="demo-container">
-            <div class="demo-title">Tune the Learning Rate</div>
+            <div class="demo-title">Optimizer Comparison and Learning Rate Tuning</div>
             <div class="slider-container">
               <div class="slider-label">
                 <span>Learning Rate</span>
@@ -823,231 +1000,478 @@
               </div>
               <input type="range" min="0.0001" max="0.1" step="0.0001" value="0.001" class="slider" id="lr-slider">
               <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">
-                <span>Too Small (Slow)</span>
-                <span>Just Right</span>
-                <span>Too Large (Overshoot)</span>
+                <span>Too Small (Slow Convergence)</span>
+                <span>Optimal Range</span>
+                <span>Too Large (Divergence)</span>
               </div>
             </div>
-            
             <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem;">
-              <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px; width: 140px; transition: all 0.3s ease; border: 2px solid transparent;" onmouseover="this.style.border='2px solid #ff7043'" onmouseout="this.style.border='2px solid transparent'">
+              <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px; width: 160px; transition: all 0.3s ease; border: 2px solid transparent;" onmouseover="this.style.border='2px solid #ff7043'" onmouseout="this.style.border='2px solid transparent'">
                 <div style="font-weight: bold; color: #ff7043; font-size: 1.2rem;">SGD</div>
                 <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
-                  Simple. Reliable. Needs careful tuning.
+                  Vanilla gradient descent. Simple but can be slow.
                 </div>
               </div>
-              <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px; width: 140px; transition: all 0.3s ease; border: 2px solid transparent;" onmouseover="this.style.border='2px solid #fb8c00'" onmouseout="this.style.border='2px solid transparent'">
+              <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px; width: 160px; transition: all 0.3s ease; border: 2px solid transparent;" onmouseover="this.style.border='2px solid #fb8c00'" onmouseout="this.style.border='2px solid transparent'">
                 <div style="font-weight: bold; color: #fb8c00; font-size: 1.2rem;">RMSprop</div>
                 <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
-                  Adapts step size per parameter. Great for recurrent nets.
+                  Adapts learning rate per parameter based on recent gradients.
                 </div>
               </div>
-              <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px; width: 140px; transition: all 0.3s ease; border: 2px solid transparent;" onmouseover="this.style.border='2px solid #26a69a'" onmouseout="this.style.border='2px solid transparent'">
+              <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px; width: 160px; transition: all 0.3s ease; border: 2px solid transparent;" onmouseover="this.style.border='2px solid #26a69a'" onmouseout="this.style.border='2px solid transparent'">
                 <div style="font-weight: bold; color: #26a69a; font-size: 1.2rem;">Adam</div>
                 <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
-                  Adaptive + momentum. <strong>Start here!</strong>
+                  Adaptive + momentum. <strong>Recommended default.</strong>
+                </div>
+              </div>
+              <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px; width: 160px; transition: all 0.3s ease; border: 2px solid transparent;" onmouseover="this.style.border='2px solid #ab47bc'" onmouseout="this.style.border='2px solid transparent'">
+                <div style="font-weight: bold; color: #ab47bc; font-size: 1.2rem;">Nadam</div>
+                <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
+                  Adam + Nesterov momentum. Often faster convergence.
                 </div>
               </div>
             </div>
           </div>
-
+          
+          <div class="section-tag">Mathematical Formulations</div>
+          <div class="math-block">
+            <p><strong>Stochastic Gradient Descent (SGD):</strong></p>
+            <p>v<sub>t</sub> = -η∇<sub>θ</sub>L(θ<sub>t-1</sub>)</p>
+            <p>θ<sub>t</sub> = θ<sub>t-1</sub> + v<sub>t</sub></p>
+            
+            <p><strong>SGD with Momentum:</strong></p>
+            <p>v<sub>t</sub> = μv<sub>t-1</sub> - η∇<sub>θ</sub>L(θ<sub>t-1</sub>)</p>
+            <p>θ<sub>t</sub> = θ<sub>t-1</sub> + v<sub>t</sub></p>
+            <p>(μ = momentum, typically 0.9)</p>
+            
+            <p><strong>Adam:</strong></p>
+            <p>m<sub>t</sub> = β₁m<sub>t-1</sub> + (1-β₁)∇<sub>θ</sub>L(θ<sub>t-1</sub>)</p>
+            <p>v<sub>t</sub> = β₂v<sub>t-1</sub> + (1-β₂)(∇<sub>θ</sub>L(θ<sub>t-1</sub>))²</p>
+            <p>m̂<sub>t</sub> = m<sub>t</sub>/(1-β₁ᵗ)</p>
+            <p>v̂<sub>t</sub> = v<sub>t</sub>/(1-β₂ᵗ)</p>
+            <p>θ<sub>t</sub> = θ<sub>t-1</sub> - ηm̂<sub>t</sub>/√(v̂<sub>t</sub> + ε)</p>
+            <p>(β₁=0.9, β₂=0.999, ε=1e-8)</p>
+          </div>
+          
+          <div class="section-tag">Advanced Optimization Techniques</div>
+          <ul>
+            <li><strong>Learning Rate Schedules:</strong> Reduce learning rate over time (step decay, exponential decay, cosine annealing).</li>
+            <li><strong>Learning Rate Warmup:</strong> Gradually increase learning rate at the beginning of training to stabilize early updates.</li>
+            <li><strong>Gradient Clipping:</strong> Limit the magnitude of gradients to prevent exploding gradients in RNNs.</li>
+            <li><strong>Weight Decay:</strong> L2 regularization applied directly in the optimizer (different from adding L2 loss).</li>
+            <li><strong>Lookahead Optimizer:</strong> Maintain "fast" and "slow" weights for more stable convergence.</li>
+            <li><strong>SWA (Stochastic Weight Averaging):</strong> Average weights from different training iterations for better generalization.</li>
+          </ul>
+          
+          <div class="code-block">
+            <div class="code-label">Advanced Optimizer Configuration</div>
+            <span class="code-comment"># Learning rate schedule</span><br>
+            lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(<br>
+            &nbsp;&nbsp;initial_learning_rate=<span class="code-number">0.001</span>,<br>
+            &nbsp;&nbsp;decay_steps=<span class="code-number">10000</span>,<br>
+            &nbsp;&nbsp;decay_rate=<span class="code-number">0.9</span><br>
+            )<br><br>
+            <span class="code-comment"># Adam with weight decay</span><br>
+            optimizer = tf.keras.optimizers.Adam(<br>
+            &nbsp;&nbsp;learning_rate=lr_schedule,<br>
+            &nbsp;&nbsp;beta_1=<span class="code-number">0.9</span>,<br>
+            &nbsp;&nbsp;beta_2=<span class="code-number">0.999</span>,<br>
+            &nbsp;&nbsp;epsilon=<span class="code-number">1e-07</span>,<br>
+            &nbsp;&nbsp;amsgrad=<span class="code-keyword">False</span><br>
+            )<br><br>
+            <span class="code-comment"># SGD with momentum and nesterov</span><br>
+            sgd_optimizer = tf.keras.optimizers.SGD(<br>
+            &nbsp;&nbsp;learning_rate=<span class="code-number">0.01</span>,<br>
+            &nbsp;&nbsp;momentum=<span class="code-number">0.9</span>,<br>
+            &nbsp;&nbsp;nesterov=<span class="code-keyword">True</span><br>
+            )<br><br>
+            <span class="code-comment"># Gradient clipping</span><br>
+            optimizer = tf.keras.optimizers.Adam(clipnorm=<span class="code-number">1.0</span>) <span class="code-comment"># Clip by norm</span><br>
+            optimizer = tf.keras.optimizers.Adam(clipvalue=<span class="code-number">0.5</span>) <span class="code-comment"># Clip by value</span>
+          </div>
+          
           <div class="pro-tip">
             <i class="fas fa-graduation-cap"></i>
             <div>
-              <strong>Pro Tip:</strong> Start with Adam optimizer and learning rate 0.001. It works great for most problems. Only switch if you have a good reason!
+              <strong>Pro Tip:</strong> Start with Adam (lr=0.001) for most problems. If you need better generalization or are doing research, try SGD with momentum and learning rate scheduling. Always monitor training with TensorBoard to adjust hyperparameters.
             </div>
           </div>
-
+          
           <div class="why-matters">
             <i class="fas fa-lightbulb"></i>
             <div>
-              <strong>Why This Matters:</strong> A bad optimizer or wrong learning rate can make training take 10x longer — or fail completely. It’s like using a spoon to dig a tunnel instead of a drill.
+              <strong>Why This Matters:</strong> The choice of optimizer and its hyperparameters can make the difference between a model that trains in hours versus days, or between 90% and 95% accuracy. Understanding the mathematics helps you make informed choices rather than relying on defaults.
+            </div>
+          </div>
+          
+          <div class="pitfall">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <strong>Common Pitfall:</strong> Using the same learning rate for all layers in transfer learning. Lower layers (pre-trained) typically need smaller learning rates than higher layers (randomly initialized). Use layer-wise learning rates for best results.
             </div>
           </div>
         </div>
       </div>
-
       <!-- Accordion 7: Deep Learning -->
       <div class="accordion-item">
-        <div class="accordion-header">🧱 7. Deep Learning: Layers That Learn Layers</div>
+        <div class="accordion-header">🧱 7. Deep Learning: Architectures and Representation Learning</div>
         <div class="accordion-content">
-          <p>Deep Learning = Neural Networks with <strong>many layers</strong>. Why “deep”? Because information passes through multiple layers of transformation, each learning more abstract features.</p>
-          <p>Think of it like an assembly line in a factory:
-            <ul>
-              <li><strong>Layer 1:</strong> Detects edges and corners in an image.</li>
-              <li><strong>Layer 2:</strong> Combines edges into shapes (circles, squares).</li>
-              <li><strong>Layer 3:</strong> Combines shapes into parts (eyes, wheels).</li>
-              <li><strong>Layer 4:</strong> Combines parts into objects (faces, cars).</li>
-            </ul>
-          </p>
+          <p>Deep Learning represents a revolution in machine learning — using neural networks with many layers to automatically learn hierarchical representations of data. Unlike traditional ML where features are hand-engineered, deep learning models learn features directly from raw data, making them exceptionally powerful for complex tasks like image recognition, natural language processing, and speech recognition.</p>
+          
+          <div class="deep-concept">
+            <i class="fas fa-layer-group"></i>
+            <div>
+              <strong>Mathematical Foundation:</strong> A deep neural network with L layers represents a composite function f(x) = f<sub>L</sub>(f<sub>L-1</sub>(⋯f<sub>2</sub>(f<sub>1</sub>(x))⋯)), where each f<sub>i</sub>(x) = σ(W<sub>i</sub>x + b<sub>i</sub>) is a layer with weights W<sub>i</sub>, biases b<sub>i</sub>, and activation function σ. The universal approximation theorem states that a feedforward network with a single hidden layer can approximate any continuous function, but deep networks can represent certain functions exponentially more efficiently.
+            </div>
+          </div>
           
           <div class="diagram-container">
             <div class="diagram">
-              <div class="diagram-title">A Deep Neural Network</div>
-              <svg width="500" height="220" style="background: transparent; margin: 1rem auto;">
+              <div class="diagram-title">Hierarchical Feature Learning in Deep Networks</div>
+              <svg width="600" height="300" style="background: transparent; margin: 1rem auto;">
                 <!-- Input Layer -->
-                <circle cx="60" cy="60" r="18" fill="#ff7043" />
-                <circle cx="60" cy="110" r="18" fill="#ff7043" />
-                <circle cx="60" cy="160" r="18" fill="#ff7043" />
-                <text x="60" y="195" fill="white" font-size="13" text-anchor="middle">Input Pixels</text>
-                
-                <!-- Hidden Layer 1 -->
-                <circle cx="180" cy="50" r="18" fill="#5e35b1" />
-                <circle cx="180" cy="90" r="18" fill="#5e35b1" />
-                <circle cx="180" cy="130" r="18" fill="#5e35b1" />
-                <circle cx="180" cy="170" r="18" fill="#5e35b1" />
-                <text x="180" y="205" fill="white" font-size="13" text-anchor="middle">Edges & Textures</text>
-                
-                <!-- Hidden Layer 2 -->
-                <circle cx="300" cy="50" r="18" fill="#5e35b1" />
-                <circle cx="300" cy="90" r="18" fill="#5e35b1" />
-                <circle cx="300" cy="130" r="18" fill="#5e35b1" />
-                <circle cx="300" cy="170" r="18" fill="#5e35b1" />
-                <text x="300" y="205" fill="white" font-size="13" text-anchor="middle">Parts & Shapes</text>
-                
-                <!-- Output Layer -->
-                <circle cx="420" cy="90" r="18" fill="#26a69a" />
-                <circle cx="420" cy="130" r="18" fill="#26a69a" />
-                <text x="420" y="165" fill="white" font-size="13" text-anchor="middle">Final Prediction</text>
-                
-                <!-- Connections (fewer for clarity) -->
-                <line x1="78" y1="60" x2="162" y2="50" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                <line x1="78" y1="60" x2="162" y2="90" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                <line x1="78" y1="110" x2="162" y2="90" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                <line x1="78" y1="160" x2="162" y2="170" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                
-                <line x1="198" y1="50" x2="282" y2="50" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                <line x1="198" y1="90" x2="282" y2="90" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                <line x1="198" y1="130" x2="282" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                <line x1="198" y1="170" x2="282" y2="170" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                
-                <line x1="318" y1="50" x2="402" y2="90" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                <line x1="318" y1="90" x2="402" y2="90" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                <line x1="318" y1="130" x2="402" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                <line x1="318" y1="170" x2="402" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+                <rect x="20" y="120" width="80" height="60" fill="#ff7043" rx="8" />
+                <text x="60" y="150" fill="white" font-size="12" text-anchor="middle">Raw Input</text>
+                <text x="60" y="170" fill="white" font-size="10" text-anchor="middle">(Pixels, Words, etc.)</text>
+                <!-- Layer 1 -->
+                <rect x="130" y="60" width="80" height="60" fill="#5e35b1" rx="8" />
+                <text x="170" y="85" fill="white" font-size="12" text-anchor="middle">Layer 1</text>
+                <text x="170" y="105" fill="white" font-size="10" text-anchor="middle">Low-level Features</text>
+                <!-- Layer 2 -->
+                <rect x="130" y="180" width="80" height="60" fill="#5e35b1" rx="8" />
+                <text x="170" y="205" fill="white" font-size="12" text-anchor="middle">Layer 2</text>
+                <text x="170" y="225" fill="white" font-size="10" text-anchor="middle">Mid-level Features</text>
+                <!-- Layer 3 -->
+                <rect x="240" y="90" width="80" height="60" fill="#5e35b1" rx="8" />
+                <text x="280" y="115" fill="white" font-size="12" text-anchor="middle">Layer 3</text>
+                <text x="280" y="135" fill="white" font-size="10" text-anchor="middle">High-level Features</text>
+                <!-- Layer 4 -->
+                <rect x="350" y="120" width="80" height="60" fill="#26a69a" rx="8" />
+                <text x="390" y="145" fill="white" font-size="12" text-anchor="middle">Output Layer</text>
+                <text x="390" y="165" fill="white" font-size="10" text-anchor="middle">Predictions</text>
+                <!-- Connections -->
+                <line x1="100" y1="135" x2="130" y2="90" stroke="rgba(255,255,255,0.5)" stroke-width="2" />
+                <line x1="100" y1="165" x2="130" y2="210" stroke="rgba(255,255,255,0.5)" stroke-width="2" />
+                <line x1="210" y1="90" x2="240" y2="120" stroke="rgba(255,255,255,0.5)" stroke-width="2" />
+                <line x1="210" y1="210" x2="240" y2="120" stroke="rgba(255,255,255,0.5)" stroke-width="2" />
+                <line x1="320" y1="120" x2="350" y2="150" stroke="rgba(255,255,255,0.5)" stroke-width="2" />
+                <!-- Feature Examples -->
+                <text x="170" y="45" fill="#ffca28" font-size="9" text-anchor="middle">Edges, Corners,</text>
+                <text x="170" y="55" fill="#ffca28" font-size="9" text-anchor="middle">Simple Patterns</text>
+                <text x="170" y="265" fill="#ffca28" font-size="9" text-anchor="middle">Textures, Parts,</text>
+                <text x="170" y="275" fill="#ffca28" font-size="9" text-anchor="middle">Word Combinations</text>
+                <text x="280" y="75" fill="#ffca28" font-size="9" text-anchor="middle">Objects, Concepts,</text>
+                <text x="280" y="85" fill="#ffca28" font-size="9" text-anchor="middle">Semantic Meaning</text>
               </svg>
             </div>
           </div>
           
-          <p>Early layers learn <span data-tooltip="Think: lines, curves, color blobs — basic visual building blocks">simple features</span>. Later layers combine them into <span data-tooltip="Think: eyes, wheels, letters — things that have meaning to humans">complex concepts</span>.</p>
-
-          <div class="pro-tip">
-            <i class="fas fa-graduation-cap"></i>
-            <div>
-              <strong>Pro Tip:</strong> Depth isn’t always better. Start shallow (2-3 layers), then go deeper only if needed. More layers = more data and compute needed!
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Accordion 8: Vanishing Gradient -->
-      <div class="accordion-item">
-        <div class="accordion-header">⚠️ 8. Vanishing Gradient: The Deep Learning Speed Bump</div>
-        <div class="accordion-content">
-          <p>When networks get very deep (10+ layers), a problem arises: during backpropagation, gradients (which tell weights how to adjust) become <strong>extremely small</strong> by the time they reach early layers. Result? Early layers stop learning. It’s like a message getting lost as it’s passed down a long line of people.</p>
-          
-          <div class="section-tag">Solutions That Saved Deep Learning</div>
+          <div class="section-tag">Key Architectural Components</div>
           <ul>
-            <li><strong>ReLU Activation:</strong> f(x) = max(0, x). Doesn’t squash positive values to near-zero like sigmoid/tanh. Keeps gradients alive!</li>
-            <li><strong>Batch Normalization:</strong> Normalizes each layer’s inputs to have mean=0, std=1. Stabilizes and accelerates training.</li>
-            <li><strong>Residual Connections (ResNet):</strong> Lets data “skip” layers via shortcuts. Even if a layer isn’t learning, info still flows through.</li>
-            <li><strong>He/Xavier Initialization:</strong> Smart ways to set initial weights so signals don’t explode or vanish from the start.</li>
+            <li><strong>Activation Functions:</strong> Introduce non-linearity (ReLU, sigmoid, tanh, Swish, GELU). Without them, the network would be equivalent to a single linear layer.</li>
+            <li><strong>Normalization Layers:</strong> Stabilize training (BatchNorm, LayerNorm, InstanceNorm, GroupNorm).</li>
+            <li><strong>Regularization Techniques:</strong> Prevent overfitting (Dropout, L1/L2 regularization, Early Stopping).</li>
+            <li><strong>Skip Connections:</strong> Enable training of very deep networks (ResNet, DenseNet).</li>
+            <li><strong>Attention Mechanisms:</strong> Allow the network to focus on relevant parts of input (Transformers).</li>
           </ul>
           
           <div class="code-block">
-            <div class="code-label">Fixing Vanishing Gradients</div>
-            <span class="code-comment"># Always use ReLU in hidden layers</span><br>
-            model.add(tf.keras.layers.Dense(<span class="code-number">128</span>, activation=<span class="code-string">'relu'</span>))<br><br>
-            
-            <span class="code-comment"># Add BatchNorm after dense layer</span><br>
-            model.add(tf.keras.layers.BatchNormalization())<br><br>
-            
-            <span class="code-comment"># Residual block (simplified)</span><br>
-            x = tf.keras.layers.Dense(<span class="code-number">128</span>)(input)<br>
-            x = tf.keras.layers.ReLU()(x)<br>
-            output = tf.keras.layers.Add()([input, x]) <span class="code-comment"># Skip connection!</span>
+            <div class="code-label">Building a Modern Deep Network</div>
+            <span class="code-comment"># Import required modules</span><br>
+            <span class="code-keyword">import</span> tensorflow <span class="code-keyword">as</span> tf<br>
+            <span class="code-keyword">from</span> tensorflow.keras <span class="code-keyword">import</span> layers, models<br><br>
+            <span class="code-comment"># Define a residual block</span><br>
+            <span class="code-keyword">def</span> <span class="code-function">residual_block</span>(x, filters):<br>
+            &nbsp;&nbsp;shortcut = x<br>
+            &nbsp;&nbsp;x = layers.Conv2D(filters, <span class="code-number">3</span>, padding=<span class="code-string">'same'</span>)(x)<br>
+            &nbsp;&nbsp;x = layers.BatchNormalization()(x)<br>
+            &nbsp;&nbsp;x = layers.Activation(<span class="code-string">'relu'</span>)(x)<br>
+            &nbsp;&nbsp;x = layers.Conv2D(filters, <span class="code-number">3</span>, padding=<span class="code-string">'same'</span>)(x)<br>
+            &nbsp;&nbsp;x = layers.BatchNormalization()(x)<br>
+            &nbsp;&nbsp;<span class="code-comment"># Add shortcut connection</span><br>
+            &nbsp;&nbsp;x = layers.Add()([shortcut, x])<br>
+            &nbsp;&nbsp;x = layers.Activation(<span class="code-string">'relu'</span>)(x)<br>
+            &nbsp;&nbsp;<span class="code-keyword">return</span> x<br><br>
+            <span class="code-comment"># Build a deep residual network</span><br>
+            inputs = layers.Input(shape=(<span class="code-number">224</span>, <span class="code-number">224</span>, <span class="code-number">3</span>))<br>
+            x = layers.Conv2D(<span class="code-number">64</span>, <span class="code-number">7</span>, strides=<span class="code-number">2</span>, padding=<span class="code-string">'same'</span>)(inputs)<br>
+            x = layers.BatchNormalization()(x)<br>
+            x = layers.Activation(<span class="code-string">'relu'</span>)(x)<br>
+            x = layers.MaxPooling2D(<span class="code-number">3</span>, strides=<span class="code-number">2</span>, padding=<span class="code-string">'same'</span>)(x)<br><br>
+            <span class="code-comment"># Add residual blocks</span><br>
+            x = residual_block(x, <span class="code-number">64</span>)<br>
+            x = residual_block(x, <span class="code-number">64</span>)<br>
+            x = residual_block(x, <span class="code-number">64</span>)<br><br>
+            <span class="code-comment"># Global average pooling and output</span><br>
+            x = layers.GlobalAveragePooling2D()(x)<br>
+            outputs = layers.Dense(<span class="code-number">1000</span>, activation=<span class="code-string">'softmax'</span>)(x)<br><br>
+            model = models.Model(inputs, outputs)
           </div>
-
+          
+          <div class="math-block">
+            <p><strong>Forward Pass in a Neural Network:</strong></p>
+            <p>z⁽¹⁾ = W⁽¹⁾x + b⁽¹⁾</p>
+            <p>a⁽¹⁾ = σ(z⁽¹⁾)</p>
+            <p>z⁽²⁾ = W⁽²⁾a⁽¹⁾ + b⁽²⁾</p>
+            <p>a⁽²⁾ = σ(z⁽²⁾)</p>
+            <p>⋮</p>
+            <p>z⁽ᴸ⁾ = W⁽ᴸ⁾a⁽ᴸ⁻¹⁾ + b⁽ᴸ⁾</p>
+            <p>ŷ = σ(z⁽ᴸ⁾) or softmax(z⁽ᴸ⁾)</p>
+            <p>Where σ is the activation function, W are weights, b are biases, z are pre-activations, and a are activations.</p>
+          </div>
+          
+          <div class="pro-tip">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Pro Tip:</strong> Depth is not always better. Start with a simpler architecture and add complexity only if needed. Use established architectures (ResNet, EfficientNet, Transformer) as baselines before designing custom networks. The key is finding the right balance between model capacity and available data.
+            </div>
+          </div>
+          
+          <div class="why-matters">
+            <i class="fas fa-lightbulb"></i>
+            <div>
+              <strong>Why This Matters:</strong> Deep learning has achieved superhuman performance in many domains because of its ability to learn hierarchical representations automatically. Understanding the architecture components and their mathematical foundations enables you to design better models and troubleshoot issues effectively.
+            </div>
+          </div>
+          
           <div class="pitfall">
             <i class="fas fa-exclamation-triangle"></i>
             <div>
-              <strong>Common Pitfall:</strong> Using sigmoid/tanh in deep networks. They squash values to 0 or 1, killing gradients. Use ReLU or its variants (LeakyReLU, ELU)!
+              <strong>Common Pitfall:</strong> Not using proper weight initialization for deep networks. Xavier/Glorot initialization for tanh/sigmoid, He initialization for ReLU. Poor initialization can lead to vanishing/exploding gradients, making training impossible.
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Accordion 9: Libraries & TensorBoard -->
+      <!-- Accordion 8: Vanishing Gradient -->
       <div class="accordion-item">
-        <div class="accordion-header">🌍 9. The ML Ecosystem & Visualization</div>
+        <div class="accordion-header">⚠️ 8. Vanishing/Exploding Gradients: Analysis and Solutions</div>
         <div class="accordion-content">
-          <p>You’re not alone! A rich ecosystem of tools exists:</p>
+          <p>The vanishing and exploding gradient problems are fundamental challenges in training deep neural networks. As gradients are backpropagated through many layers, they can either shrink exponentially (vanish) or grow exponentially (explode), making it difficult or impossible for early layers to learn effectively. This was the primary reason deep networks were considered untrainable before 2010.</p>
           
-          <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
-            <div style="text-align: center; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; width: 160px; transition: all 0.3s ease; transform: translateY(0);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
-              <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🧠</div>
-              <div style="font-weight: bold; font-size: 1.2rem;">TensorFlow</div>
-              <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
-                Google’s end-to-end platform. Great for production.
-              </div>
-            </div>
-            <div style="text-align: center; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; width: 160px; transition: all 0.3s ease; transform: translateY(0);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
-              <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🔥</div>
-              <div style="font-weight: bold; font-size: 1.2rem;">PyTorch</div>
-              <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
-                Meta’s darling. Loved by researchers for flexibility.
-              </div>
-            </div>
-            <div style="text-align: center; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; width: 160px; transition: all 0.3s ease; transform: translateY(0);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
-              <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🎯</div>
-              <div style="font-weight: bold; font-size: 1.2rem;">Keras</div>
-              <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
-                High-level API. Runs on TensorFlow. Perfect for beginners.
-              </div>
+          <div class="deep-concept">
+            <i class="fas fa-chart-line"></i>
+            <div>
+              <strong>Mathematical Analysis:</strong> The gradient of the loss with respect to layer i's weights is ∂L/∂W⁽ⁱ⁾ = (∂L/∂a⁽ᴸ⁾) × Π<sub>j=i+1</sub><sup>L</sup> (∂a⁽ʲ⁾/∂z⁽ʲ⁾ × ∂z⁽ʲ⁾/∂a⁽ʲ⁻¹⁾) × (∂a⁽ⁱ⁾/∂z⁽ⁱ⁾ × ∂z⁽ⁱ⁾/∂W⁽ⁱ⁾). When the terms in the product Π are consistently < 1, gradients vanish; when > 1, they explode. The magnitude depends on weight initialization, activation functions, and network depth.
             </div>
           </div>
           
-          <p><strong>TensorBoard</strong> is your mission control. While your model trains, TensorBoard lets you visualize:</p>
+          <div class="section-tag">Comprehensive Solutions</div>
           <ul>
-            <li>📉 Loss and accuracy over time</li>
-            <li>🖼️ Model architecture graph</li>
-            <li>📊 Histograms of weights and gradients</li>
-            <li>🖼️ Sample predictions (great for debugging!)</li>
+            <li><strong>Activation Functions:</strong> Replace sigmoid/tanh with ReLU and variants (LeakyReLU, ELU, Swish). ReLU has gradient = 1 for positive inputs, preventing vanishing gradients.</li>
+            <li><strong>Weight Initialization:</strong> Use Xavier/Glorot initialization for tanh/sigmoid (variance = 2/(n<sub>in</sub> + n<sub>out</sub>)), He initialization for ReLU (variance = 2/n<sub>in</sub>).</li>
+            <li><strong>Batch Normalization:</strong> Normalizes layer inputs to zero mean and unit variance, stabilizing the distribution of activations and gradients.</li>
+            <li><strong>Skip Connections:</strong> ResNet-style connections allow gradients to flow directly through the network, bypassing layers.</li>
+            <li><strong>Gradient Clipping:</strong> For exploding gradients (common in RNNs), clip gradient norms or values to a maximum threshold.</li>
+            <li><strong>Layer Normalization:</strong> Alternative to BatchNorm that normalizes across features rather than batch dimension, more stable for small batches.</li>
+            <li><strong>Residual Initialization:</strong> Initialize the last layer of residual blocks with small weights to ensure identity mapping at initialization.</li>
           </ul>
-
+          
+          <div class="code-block">
+            <div class="code-label">Implementing Solutions to Gradient Problems</div>
+            <span class="code-comment"># Proper initialization for different activation functions</span><br>
+            model = tf.keras.Sequential([<br>
+            &nbsp;&nbsp;<span class="code-comment"># For ReLU: use He initialization</span><br>
+            &nbsp;&nbsp;layers.Dense(<span class="code-number">512</span>, activation=<span class="code-string">'relu'</span>, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;kernel_initializer=<span class="code-string">'he_normal'</span>, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;input_shape=(<span class="code-number">784</span>,)),<br>
+            &nbsp;&nbsp;<span class="code-comment"># Batch normalization stabilizes activations</span><br>
+            &nbsp;&nbsp;layers.BatchNormalization(),<br>
+            &nbsp;&nbsp;<span class="code-comment"># LeakyReLU prevents "dying ReLU" problem</span><br>
+            &nbsp;&nbsp;layers.Dense(<span class="code-number">256</span>),<br>
+            &nbsp;&nbsp;layers.LeakyReLU(alpha=<span class="code-number">0.1</span>),<br>
+            &nbsp;&nbsp;layers.BatchNormalization(),<br>
+            &nbsp;&nbsp;<span class="code-comment"># For final layer with sigmoid/tanh: use Xavier/Glorot</span><br>
+            &nbsp;&nbsp;layers.Dense(<span class="code-number">10</span>, activation=<span class="code-string">'softmax'</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;kernel_initializer=<span class="code-string">'glorot_normal'</span>)<br>
+            ])<br><br>
+            <span class="code-comment"># Residual block implementation</span><br>
+            <span class="code-keyword">def</span> <span class="code-function">residual_block</span>(x, filters):<br>
+            &nbsp;&nbsp;shortcut = x<br>
+            &nbsp;&nbsp;<span class="code-comment"># Main path</span><br>
+            &nbsp;&nbsp;y = layers.Conv2D(filters, <span class="code-number">3</span>, padding=<span class="code-string">'same'</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;kernel_initializer=<span class="code-string">'he_normal'</span>)(x)<br>
+            &nbsp;&nbsp;y = layers.BatchNormalization()(y)<br>
+            &nbsp;&nbsp;y = layers.ReLU()(y)<br>
+            &nbsp;&nbsp;y = layers.Conv2D(filters, <span class="code-number">3</span>, padding=<span class="code-string">'same'</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;kernel_initializer=<span class="code-string">'he_normal'</span>)(y)<br>
+            &nbsp;&nbsp;y = layers.BatchNormalization()(y)<br>
+            &nbsp;&nbsp;<span class="code-comment"># Add shortcut (identity mapping)</span><br>
+            &nbsp;&nbsp;output = layers.Add()([shortcut, y])<br>
+            &nbsp;&nbsp;output = layers.ReLU()(output)<br>
+            &nbsp;&nbsp;<span class="code-keyword">return</span> output<br><br>
+            <span class="code-comment"># Gradient clipping for RNNs</span><br>
+            optimizer = tf.keras.optimizers.Adam(clipnorm=<span class="code-number">1.0</span>)
+          </div>
+          
+          <div class="math-block">
+            <p><strong>Gradient Magnitude Analysis:</strong></p>
+            <p>For a linear network with identical weight matrices W, the gradient at layer i is:</p>
+            <p>∂L/∂W⁽ⁱ⁾ ∝ (Wᵀ)<sup>L-i</sup> × ∂L/∂a⁽ᴸ⁾</p>
+            <p>The eigenvalues of W determine whether gradients vanish (|λ| < 1) or explode (|λ| > 1).</p>
+            <p>Xavier initialization sets variance to preserve signal magnitude:</p>
+            <p>Var[W] = 2 / (n<sub>in</sub> + n<sub>out</sub>) for tanh</p>
+            <p>He initialization accounts for ReLU's half-zero property:</p>
+            <p>Var[W] = 2 / n<sub>in</sub> for ReLU</p>
+          </div>
+          
           <div class="pro-tip">
             <i class="fas fa-graduation-cap"></i>
             <div>
-              <strong>Pro Tip:</strong> ALWAYS use TensorBoard. Watching your loss curve is like watching a heartbeat monitor — if it’s flat or spiking, something’s wrong!
+              <strong>Pro Tip:</strong> Monitor gradient norms during training using tf.keras.callbacks.TensorBoard or custom callbacks. If gradients are consistently < 1e-6, you likely have vanishing gradients; if > 10, you may have exploding gradients. Use the appropriate solutions based on your observations.
             </div>
           </div>
-
+          
+          <div class="pitfall">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <strong>Common Pitfall:</strong> Using Batch Normalization incorrectly. Don't apply it before the final output layer in classification tasks, and be careful with its behavior during inference (uses moving averages, not batch statistics). Also, avoid using it with very small batch sizes (< 16).
+            </div>
+          </div>
+          
+          <div class="why-matters">
+            <i class="fas fa-lightbulb"></i>
+            <div>
+              <strong>Why This Matters:</strong> Understanding and addressing gradient problems is essential for training deep networks effectively. These solutions have enabled the development of networks with hundreds or thousands of layers, achieving state-of-the-art results across domains.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion 9: Libraries & TensorBoard -->
+      <div class="accordion-item">
+        <div class="accordion-header">🌍 9. ML Ecosystem, Best Practices, and TensorBoard Mastery</div>
+        <div class="accordion-content">
+          <p>The machine learning ecosystem extends far beyond TensorFlow, encompassing tools for data processing, model development, experimentation tracking, deployment, and monitoring. Mastering this ecosystem and adopting best practices is crucial for transitioning from toy examples to production-grade ML systems.</p>
+          
+          <div class="deep-concept">
+            <i class="fas fa-rocket"></i>
+            <div>
+              <strong>Production ML Philosophy:</strong> Successful ML in production requires more than just model accuracy. It demands reproducibility, scalability, maintainability, and monitoring. The model is just one component in a larger system that includes data pipelines, feature stores, serving infrastructure, and feedback loops.
+            </div>
+          </div>
+          
+          <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
+            <div style="text-align: center; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; width: 180px; transition: all 0.3s ease; transform: translateY(0);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+              <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🧠</div>
+              <div style="font-weight: bold; font-size: 1.2rem;">TensorFlow</div>
+              <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
+                End-to-end platform with TFX for production pipelines.
+              </div>
+            </div>
+            <div style="text-align: center; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; width: 180px; transition: all 0.3s ease; transform: translateY(0);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+              <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🔥</div>
+              <div style="font-weight: bold; font-size: 1.2rem;">PyTorch</div>
+              <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
+                Dynamic computation graphs. Preferred for research.
+              </div>
+            </div>
+            <div style="text-align: center; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; width: 180px; transition: all 0.3s ease; transform: translateY(0);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+              <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">📊</div>
+              <div style="font-weight: bold; font-size: 1.2rem;">Scikit-learn</div>
+              <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
+                Traditional ML algorithms. Excellent for baselines.
+              </div>
+            </div>
+            <div style="text-align: center; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; width: 180px; transition: all 0.3s ease; transform: translateY(0);" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+              <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">📈</div>
+              <div style="font-weight: bold; font-size: 1.2rem;">TensorBoard</div>
+              <div style="font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.4;">
+                Visualization toolkit for experiments and debugging.
+              </div>
+            </div>
+          </div>
+          
+          <div class="section-tag">TensorBoard: Comprehensive Usage</div>
+          <ul>
+            <li><strong>Scalars:</strong> Track loss, accuracy, learning rate, and custom metrics over time.</li>
+            <li><strong>Graphs:</strong> Visualize model architecture and computation graph.</li>
+            <li><strong>Histograms:</strong> Monitor distribution of weights, biases, and activations.</li>
+            <li><strong>Distributions:</strong> Track how distributions change over training.</li>
+            <li><strong>Images:</strong> Visualize input data, feature maps, or generated samples.</li>
+            <li><strong>Embeddings:</strong> Project high-dimensional embeddings to 2D/3D for visualization.</li>
+            <li><strong>Text:</strong> Display sample predictions, attention weights, or generated text.</li>
+            <li><strong>Hyperparameter Tuning:</strong> Compare different runs with different hyperparameters.</li>
+          </ul>
+          
+          <div class="code-block">
+            <div class="code-label">Advanced TensorBoard Integration</div>
+            <span class="code-comment"># Set up TensorBoard callback</span><br>
+            <span class="code-keyword">import</span> datetime<br>
+            log_dir = <span class="code-string">"logs/fit/"</span> + datetime.datetime.now().strftime(<span class="code-string">"%Y%m%d-%H%M%S"</span>)<br>
+            tensorboard_callback = tf.keras.callbacks.TensorBoard(<br>
+            &nbsp;&nbsp;log_dir=log_dir,<br>
+            &nbsp;&nbsp;histogram_freq=<span class="code-number">1</span>, <span class="code-comment"># Log histogram of weights every epoch</span><br>
+            &nbsp;&nbsp;write_graph=<span class="code-keyword">True</span>,<br>
+            &nbsp;&nbsp;write_images=<span class="code-keyword">True</span>,<br>
+            &nbsp;&nbsp;update_freq=<span class="code-string">'epoch'</span>,<br>
+            &nbsp;&nbsp;profile_batch=<span class="code-number">2</span><br>
+            )<br><br>
+            <span class="code-comment"># Custom logging during training</span><br>
+            <span class="code-keyword">class</span> <span class="code-function">CustomCallback</span>(tf.keras.callbacks.Callback):<br>
+            &nbsp;&nbsp;<span class="code-keyword">def</span> <span class="code-function">on_epoch_end</span>(self, epoch, logs=<span class="code-keyword">None</span>):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;writer = tf.summary.create_file_writer(log_dir)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">with</span> writer.as_default():<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># Log custom metrics</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tf.summary.scalar(<span class="code-string">'learning_rate'</span>, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.model.optimizer.learning_rate, step=epoch)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># Log weight histograms</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">for</span> i, layer <span class="code-keyword">in</span> enumerate(self.model.layers):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span> hasattr(layer, <span class="code-string">'kernel'</span>):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tf.summary.histogram(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f<span class="code-string">'layer_</span>{i}<span class="code-string">/weights'</span>, layer.kernel, step=epoch)<br><br>
+            <span class="code-comment"># Train with callbacks</span><br>
+            model.fit(x_train, y_train,<br>
+            &nbsp;&nbsp;epochs=<span class="code-number">10</span>,<br>
+            &nbsp;&nbsp;validation_data=(x_val, y_val),<br>
+            &nbsp;&nbsp;callbacks=[tensorboard_callback, CustomCallback()])
+          </div>
+          
+          <div class="section-tag">ML Best Practices</div>
+          <ul>
+            <li><strong>Experiment Tracking:</strong> Use tools like MLflow, Weights & Biases, or TensorBoard to log experiments, parameters, and results.</li>
+            <li><strong>Version Control:</strong> Version your data, code, and models. Use DVC for data versioning alongside Git.</li>
+            <li><strong>Reproducibility:</strong> Set random seeds, use deterministic operations when possible, and document environments.</li>
+            <li><strong>Validation Strategy:</strong> Use proper train/validation/test splits, cross-validation, or time-based splits for time series.</li>
+            <li><strong>Monitoring:</strong> Monitor model performance in production, track data drift, and set up alerting.</li>
+            <li><strong>Model Serving:</strong> Use TensorFlow Serving, TorchServe, or cloud platforms for efficient model deployment.</li>
+            <li><strong>Continuous Training:</strong> Implement pipelines for retraining models as new data becomes available.</li>
+          </ul>
+          
+          <div class="pro-tip">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Pro Tip:</strong> Make TensorBoard your best friend. Start every training run with it. The ability to visualize what's happening inside your model is invaluable for debugging and optimization. Set up alerts for when metrics go outside expected ranges.
+            </div>
+          </div>
+          
+          <div class="why-matters">
+            <i class="fas fa-lightbulb"></i>
+            <div>
+              <strong>Why This Matters:</strong> The difference between academic ML and production ML is the ecosystem and best practices. Models that work well in notebooks often fail in production due to issues like data drift, scalability problems, or lack of monitoring. Mastering the full ecosystem prepares you for real-world ML challenges.
+            </div>
+          </div>
+          
           <div class="next-unit glow">
-            <h3><i class="fas fa-rocket"></i> Ready for Unit 2?</h3>
-            <p>You’ve mastered the foundations! Next up: Convolutional Networks, Embeddings, Transfer Learning, and building your first image classifier.</p>
+            <h3><i class="fas fa-rocket"></i> Ready for Unit 2: Advanced Architectures & Transfer Learning</h3>
+            <p>You've mastered the mathematical foundations and practical implementation of ML with TensorFlow! Next up: Convolutional Neural Networks for computer vision, Recurrent Networks for sequences, Attention Mechanisms, Transformer architectures, and the power of Transfer Learning.</p>
           </div>
         </div>
       </div>
     </div>
-
     <footer>
-      <p>✅ Unit 1 Complete • 📈 75% Overall Progress • <strong>Next: Unit 2 - Core Concepts & Image Classification</strong></p>
+      <p>✅ Unit 1 Complete • 📈 75% Overall Progress • <strong>Next: Unit 2 - Advanced Architectures & Transfer Learning</strong></p>
       <p>© 2025 Learning Galaxy • Crafted with 🧠 and 💖 for Future AI Builders</p>
     </footer>
   </div>
-
   <script>
     // Accordion functionality
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.parentElement;
         const isActive = item.classList.contains('active');
-        
         // Close all items
         document.querySelectorAll('.accordion-item').forEach(i => {
           i.classList.remove('active');
         });
-        
         // Open clicked item if it wasn't already active
         if (!isActive) {
           item.classList.add('active');
@@ -1058,15 +1482,12 @@
         }
       });
     });
-
     // Learning rate slider
     const slider = document.getElementById('lr-slider');
     const valueDisplay = document.getElementById('lr-value');
-    
     slider.addEventListener('input', () => {
       const val = parseFloat(slider.value).toFixed(4);
       valueDisplay.textContent = val;
-      
       // Visual feedback
       if (val < 0.0005 || val > 0.05) {
         valueDisplay.style.color = '#ef5350';
@@ -1076,76 +1497,88 @@
         valueDisplay.style.background = 'rgba(38, 166, 154, 0.2)';
       }
     });
-
     // Export notes function
     function exportNotes() {
       const content = `
 🌟 UNIT 1: FOUNDATIONS OF ML & TENSORFLOW 🌟
 ===========================================
+🧠 1. MACHINE LEARNING: MATHEMATICAL FOUNDATIONS
+- Statistical learning from data: f: X → Y minimizing L(f(x), y)
+- Three components: Representation, Evaluation, Optimization
+- Types: Supervised, Unsupervised, Reinforcement, Semi-supervised
+- Empirical Risk Minimization: θ* = argminθ (1/n) Σi=1^n L(f(xi; θ), yi)
+- Bias-variance tradeoff: Fundamental concept for model selection
 
-🧠 1. MACHINE LEARNING
-- Teaching computers to learn patterns from data (not rules!)
-- Real-world: Netflix, spam filters, Siri, self-driving cars
-- Pro Tip: Always ask — "What pattern from what data?"
+⚙️ 2. TENSORFLOW: COMPREHENSIVE ARCHITECTURE
+- Dataflow programming with computation graphs
+- Components: Core, Keras, TFX, Lite,.js, Hub
+- Complete workflow: Data → Model → Compile → Train → Evaluate → Deploy
+- Use tf.data for production data pipelines
+- Functional API for complex architectures
 
-⚙️ 2. TENSORFLOW
-- Google's ML workshop. Build → Train → Deploy.
-- Use tf.keras for simplicity.
-- Code: model = Sequential([Dense(128, 'relu'), Dense(10, 'softmax')])
+🔢 3. TENSORS: MATHEMATICAL FOUNDATIONS
+- Multi-dimensional arrays: generalization of scalars, vectors, matrices
+- Properties: Rank (dimensions), Shape (size per dimension), dtype
+- Operations: Reshaping, Broadcasting, Reduction, Element-wise, Linear Algebra
+- Broadcasting rules: Dimensions compatible if equal or one is 1
+- Mastery essential for custom layers and data preprocessing
 
-🔢 3. TENSORS
-- Multi-dimensional arrays = the data currency of TF.
-- Scalar (0D), Vector (1D), Matrix (2D), Higher (3D+)
-- Properties: Rank, Shape, dtype
-- Why: Everything flows as tensors — data, weights, results.
+📊 4. COMPUTATION GRAPH & AUTOMATIC DIFFERENTIATION
+- Directed acyclic graph representing mathematical operations
+- Enables automatic differentiation via chain rule
+- Execution modes: Eager (development), Graph (production), AutoGraph
+- Chain rule: dy/dx = (dy/dg) × (dg/dx) for y = f(g(x))
+- Use @tf.function for performance-critical code
 
-📊 4. COMPUTATION GRAPH
-- Map of operations and data flow.
-- Enables auto-differentiation (backprop!) and GPU speed.
-- Modern TF builds graphs automatically (eager execution).
+🧮 5. VARIABLES, CONSTANTS & AUTOMATIC DIFFERENTIATION
+- Variables: Learnable parameters (weights, biases)
+- Constants: Fixed values
+- Gradient descent: θt+1 = θt - η∇θL(θt)
+- Use tf.GradientTape for custom training loops
+- Proper initialization (Xavier/He) critical for deep networks
 
-🧮 5. VARIABLES vs CONSTANTS
-- Variables: Learnable parameters (weights, biases) → tf.Variable()
-- Constants: Fixed values → tf.constant()
-- Pitfall: Accidentally using constant for weights → model won't learn!
+⛰️ 6. OPTIMIZATION ALGORITHMS: MATHEMATICS OF LEARNING
+- SGD: θt = θt-1 - η∇θL(θt-1)
+- Momentum: vt = μvt-1 - η∇θL(θt-1)
+- Adam: Adaptive moments with bias correction
+- Advanced techniques: Learning rate schedules, warmup, gradient clipping
+- Start with Adam (lr=0.001), monitor with TensorBoard
 
-⛰️ 6. OPTIMIZERS
-- Find the valley (minimum loss). Like GPS for hiking.
-- SGD: Simple. RMSprop: Adaptive. Adam: Best default (adaptive + momentum).
-- Start with Adam, lr=0.001.
+🧱 7. DEEP LEARNING: ARCHITECTURES & REPRESENTATION LEARNING
+- Hierarchical feature learning: f(x) = fL(fL-1(⋯f2(f1(x))⋯))
+- Key components: Activation functions, Normalization, Regularization, Skip connections
+- Universal approximation theorem vs. efficiency of deep representations
+- Forward pass: z⁽ⁱ⁾ = W⁽ⁱ⁾a⁽ⁱ⁻¹⁾ + b⁽ⁱ⁾, a⁽ⁱ⁾ = σ(z⁽ⁱ⁾)
+- Depth not always better: Balance capacity with data availability
 
-🧱 7. DEEP LEARNING
-- Many layers = hierarchical feature learning.
-- Layer 1: edges → Layer 2: shapes → Layer 3: parts → Layer 4: objects.
-- Pro Tip: Start shallow. Depth = more data & compute needed.
+⚠️ 8. VANISHING/EXPLODING GRADIENTS: ANALYSIS & SOLUTIONS
+- Gradient magnitude: ∂L/∂W⁽ⁱ⁾ ∝ Πj=i+1^L (∂a⁽ʲ⁾/∂z⁽ʲ⁾ × ∂z⁽ʲ⁾/∂a⁽ʲ⁻¹⁾)
+- Solutions: ReLU activation, Proper initialization, BatchNorm, Skip connections
+- Xavier initialization: Var[W] = 2/(nin + nout) for tanh
+- He initialization: Var[W] = 2/nin for ReLU
+- Monitor gradient norms during training
 
-⚠️ 8. VANISHING GRADIENT
-- Gradients shrink to zero in deep nets → early layers freeze.
-- Solutions: ReLU, BatchNorm, Residual Connections, He/Xavier init.
-- Code: Always use 'relu', add BatchNormalization(), skip connections.
+🌍 9. ML ECOSYSTEM & BEST PRACTICES
+- Tools: TensorFlow, PyTorch, Scikit-learn, TensorBoard
+- TensorBoard: Scalars, Graphs, Histograms, Images, Embeddings, Text
+- Best practices: Experiment tracking, Version control, Reproducibility
+- Production ML: Monitoring, Model serving, Continuous training
+- TensorBoard is essential for debugging and optimization
 
-🌍 9. ECOSYSTEM & TENSORBOARD
-- TensorFlow (production), PyTorch (research), Keras (easy API).
-- TensorBoard: Visualize loss, graphs, weights, predictions.
-- Pro Tip: Always monitor TensorBoard — it's your model's heartbeat!
-
-✅ You're ready for Unit 2: ConvNets, Embeddings & Transfer Learning!
+✅ You're ready for Unit 2: ConvNets, RNNs, Attention, Transformers & Transfer Learning!
       `;
-      
       const blob = new Blob([content], { type: 'text/plain' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'unit1-ml-foundations-notes.txt';
+      a.download = 'unit1-ml-foundations-comprehensive-notes.txt';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-
       // Show feedback
-      alert('🎉 Study notes downloaded! Check your downloads folder.');
+      alert('🎉 Comprehensive study notes downloaded! Check your downloads folder.');
     }
-
     // Reset page function
     function resetPage() {
       if (confirm('Reset your progress on this page? This will close all sections.')) {
@@ -1156,7 +1589,6 @@
         alert('✅ Page reset! Start fresh.');
       }
     }
-
     // Initialize first accordion open
     document.addEventListener('DOMContentLoaded', () => {
       // Already set 'active' in HTML for first item
@@ -1165,7 +1597,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 500);
     });
-
     // Micro-interactions for cards
     document.querySelectorAll('.demo-container, .code-block, .diagram').forEach(el => {
       el.addEventListener('mouseenter', () => {
